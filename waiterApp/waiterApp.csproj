@@ -96,9 +96,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BusinessEditInfo.aspx" />
     <Content Include="BusinessHome.aspx" />
     <Content Include="cssBusiness\EditInfo.css" />
     <Content Include="images\deneme.jpg" />
+    <Content Include="images\Search.png" />
     <Content Include="images\Upload.jpeg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -123,6 +125,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessEditInfo.aspx.cs">
+      <DependentUpon>BusinessEditInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessEditInfo.aspx.designer.cs">
+      <DependentUpon>BusinessEditInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusinessHome.aspx.cs">
       <DependentUpon>BusinessHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
