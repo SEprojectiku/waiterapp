@@ -18,7 +18,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-   <nav class="navbar navbar-inverse navbar-fixed-top" style="width:96%; ">
+   <nav class="navbar navbar-inverse navbar-fixed-top" style="width:96%; margin-left:2%; ">
    <div class="container ">
     <div class="navbar-header">
      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -94,7 +94,7 @@
         
         
         
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 class="panel-title pull-left" style="font-size:30px;">Business Profile</h3>
@@ -211,6 +211,16 @@
 
 
 
+ <div class="page-footer font-small blue pt-4 mt-4" style="margin-bottom:2%;">
+    <div class="footer-copyright py-3 text-center">
+              <div class="container-fluid">
+                  <a> © 2018 Copyright: WaiterAPP </a>
+      
+              </div>
+          </div>
+          <!--/.Copyright-->
+      
+      </div>
 
 
 

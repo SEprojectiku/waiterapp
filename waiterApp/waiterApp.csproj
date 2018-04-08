@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="BusinessEditInfo.aspx" />
     <Content Include="BusinessHome.aspx" />
+    <Content Include="cssBusiness\BusinessHomeSS.css" />
     <Content Include="cssBusiness\EditInfo.css" />
     <Content Include="images\deneme.jpg" />
     <Content Include="images\Search.png" />
