@@ -119,10 +119,6 @@
     <Content Include="memberHome.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="signin.aspx" />
-    <Content Include="signupforUser.aspx" />
-    <Content Include="singupforMember.aspx" />
-    <Content Include="userHome.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -148,34 +144,6 @@
       <DependentUpon>memberHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="signin.aspx.cs">
-      <DependentUpon>signin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="signin.aspx.designer.cs">
-      <DependentUpon>signin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="signupforUser.aspx.cs">
-      <DependentUpon>signupforUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="signupforUser.aspx.designer.cs">
-      <DependentUpon>signupforUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="singupforMember.aspx.cs">
-      <DependentUpon>singupforMember.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="singupforMember.aspx.designer.cs">
-      <DependentUpon>singupforMember.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="userHome.aspx.cs">
-      <DependentUpon>userHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="userHome.aspx.designer.cs">
-      <DependentUpon>userHome.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
