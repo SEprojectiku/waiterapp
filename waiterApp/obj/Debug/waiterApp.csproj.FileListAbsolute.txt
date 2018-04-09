@@ -48,14 +48,6 @@ C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\roslyn\VBCSCompiler.
 C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\waiterApp.dll.config
 C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\waiterApp.dll
 C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\waiterApp.pdb
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.Web.dll
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.ApplicationInsights.dll
-C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\tuncaymsi\Documents\GitHub\waiterapp\waiterApp\bin\Microsoft.AI.Web.xml
