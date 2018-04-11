@@ -122,6 +122,7 @@
     <Content Include="bin\waiterApp.dll" />
     <Content Include="bin\waiterApp.pdb" />
     <Content Include="BusinessEditInfo.aspx" />
+    <Content Include="BusinessEditMenu.aspx" />
     <Content Include="BusinessHome.aspx" />
     <Content Include="cssBusiness\BusinessHomeSS.css" />
     <Content Include="cssBusiness\EditInfo.css" />
@@ -144,6 +145,7 @@
     <Content Include="images\Search.png" />
     <Content Include="images\Upload.jpeg" />
     <Content Include="Index.aspx" />
+    <Content Include="js\EditMenu.js" />
     <Content Include="login.aspx" />
     <Content Include="obj\Debug\waiterApp.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\waiterApp.dll" />
@@ -193,6 +195,13 @@
     <Compile Include="BusinessEditInfo.aspx.designer.cs">
       <DependentUpon>BusinessEditInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BusinessEditMenu.aspx.cs">
+      <DependentUpon>BusinessEditMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessEditMenu.aspx.designer.cs">
+      <DependentUpon>BusinessEditMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusinessHome.aspx.cs">
       <DependentUpon>BusinessHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +209,8 @@
     <Compile Include="BusinessHome.aspx.designer.cs">
       <DependentUpon>BusinessHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="class\encyption.cs" />
+    <Compile Include="class\fillDropDown.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,7 +248,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="js\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
