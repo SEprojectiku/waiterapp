@@ -17,24 +17,36 @@ namespace waiterApp
         string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = filldropdownlist.currency();
-            currencylist.DataTextField = "currency";
-            currencylist.DataValueField = "id";
-            currencylist.DataSource = dt;
-            currencylist.DataBind();
+            if (!Page.IsPostBack)
+            {
+                DataTable dt = filldropdownlist.currency();
+                currencylist.DataTextField = "currency";
+                currencylist.DataValueField = "id";
+                currencylist.DataSource = dt;
+                currencylist.DataBind();
 
-            DataTable dt2 = filldropdownlist.languages();
-            langlist.DataTextField = "name";
-            langlist.DataValueField = "id";
-            langlist.DataSource = dt2;
-            langlist.DataBind();
+                DataTable dt2 = filldropdownlist.languages();
+                langlist.DataTextField = "name";
+                langlist.DataValueField = "id";
+                langlist.DataSource = dt2;
+                langlist.DataBind();
 
-            DataTable dt3 = filldropdownlist.countries();
-            countrylist.DataTextField = "name";
-            countrylist.DataValueField = "id";
-            countrylist.DataSource = dt3;
-            countrylist.DataBind();
+                DataTable dt3 = filldropdownlist.countries();
+                countrylist.DataTextField = "name";
+                countrylist.DataValueField = "id";
+                countrylist.DataSource = dt3;
+                countrylist.DataBind();
+            }
         }
 
+        protected void countrylist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int countryid = Convert.ToInt32(countrylist.SelectedValue);
+            DataTable dt = filldropdownlist.states(countryid);
+            cityist.DataTextField = "name";
+            cityist.DataValueField = "id";
+            cityist.DataSource = dt;
+            cityist.DataBind();
+        }
     }
 }

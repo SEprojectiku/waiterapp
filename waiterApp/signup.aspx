@@ -38,7 +38,7 @@
             <asp:Label ID="Label8" runat="server" Text="(Optional)Profile Picture (jpeg,png,gif or bmp,Less than 10 mb)"></asp:Label><asp:FileUpload ID="image" CssClass="form-control" runat="server" /><br /><br />
         </div>
         <div class="form-group col-md-6">
-            <asp:Label ID="Label9" runat="server" Text="Country:"></asp:Label><asp:DropDownList ID="countrylist" CssClass="form-control" runat="server"></asp:DropDownList><br /><br />
+            <asp:Label ID="Label9" runat="server" Text="Country:"></asp:Label><asp:DropDownList ID="countrylist" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="countrylist_SelectedIndexChanged"></asp:DropDownList><br /><br />
         </div>
          <div class="form-group col-md-6">
             <asp:Label ID="Label7" runat="server" Text="City:"></asp:Label><asp:DropDownList ID="cityist" CssClass="form-control" runat="server"></asp:DropDownList><br /><br />
