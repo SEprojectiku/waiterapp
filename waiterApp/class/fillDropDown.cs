@@ -45,7 +45,7 @@ namespace waiterApp
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from states where country_id = " + countryid, con);
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from states where country_id = " + countryid.ToString(), con);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             con.Close();
