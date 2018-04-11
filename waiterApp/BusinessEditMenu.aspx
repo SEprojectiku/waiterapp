@@ -111,7 +111,7 @@
 						1
 						</td>
 						<td>
-						<asp:DropDownList ID="DropDownList0"   runat="server" />
+						<asp:DropDownList type="select" ID="DropDownList0"  placeholder="category" CssClass='form-control' runat="server"/>
 						
                            
 						</td>
@@ -122,13 +122,12 @@
 						<input type="text" name='price0' placeholder='Price' class="form-control"/>
 						</td>
 					</tr>
-                    <tr id='addr1'></tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 	     <asp:Button runat="server" Text="Save" />
-         <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+         <a id="add_row" class="btn btn-default pull-left">Add Row class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
 </div>
 </div>
     </form>

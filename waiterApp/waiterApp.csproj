@@ -142,8 +142,10 @@
     <Content Include="css\StyleSheet1.css" />
     <Content Include="css\themify-icons.css" />
     <Content Include="images\deneme.jpg" />
+    <Content Include="images\galata.jpg" />
     <Content Include="images\Search.png" />
     <Content Include="images\Upload.jpeg" />
+    <Content Include="images\waffle.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="js\EditMenu.js" />
     <Content Include="login.aspx" />
