@@ -121,6 +121,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="bin\waiterApp.dll" />
     <Content Include="bin\waiterApp.pdb" />
+    <Content Include="BusinessAddTable.aspx" />
     <Content Include="BusinessEditInfo.aspx" />
     <Content Include="BusinessEditMenu.aspx" />
     <Content Include="BusinessHome.aspx" />
@@ -147,6 +148,7 @@
     <Content Include="images\Upload.jpeg" />
     <Content Include="images\waffle.jpg" />
     <Content Include="Index.aspx" />
+    <Content Include="js\addTable.js" />
     <Content Include="js\EditMenu.js" />
     <Content Include="login.aspx" />
     <Content Include="obj\Debug\waiterApp.csproj.FileListAbsolute.txt" />
@@ -190,6 +192,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessAddTable.aspx.cs">
+      <DependentUpon>BusinessAddTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessAddTable.aspx.designer.cs">
+      <DependentUpon>BusinessAddTable.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusinessEditInfo.aspx.cs">
       <DependentUpon>BusinessEditInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,7 +223,6 @@
     <Compile Include="class\encyption.cs" />
     <Compile Include="class\fillDropDown.cs" />
     <Compile Include="class\insertions.cs" />
-    <Compile Include="class\menu.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
