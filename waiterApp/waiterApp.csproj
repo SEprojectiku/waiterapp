@@ -213,6 +213,8 @@
     </Compile>
     <Compile Include="class\encyption.cs" />
     <Compile Include="class\fillDropDown.cs" />
+    <Compile Include="class\insertions.cs" />
+    <Compile Include="class\menu.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -51,7 +51,16 @@ namespace waiterApp
             con.Close();
             return dt;
         }
-
+        public DataTable menucategories()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from menucategories order by sorting asc", con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+            return dt;
+        }
 
     }
 }

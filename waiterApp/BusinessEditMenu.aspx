@@ -13,6 +13,29 @@
    <script src="js/EditMenu.js"></script>
     <link href="cssBusiness/EditInfo.css" rel="stylesheet" />
     <title>Edit Menu</title>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+            width: 483px;
+        }
+        .auto-style2 {
+            width: 483px
+        }
+        .auto-style3 {
+            text-align: center;
+            width: 91px;
+        }
+        .auto-style4 {
+            width: 91px;
+        }
+        .auto-style5 {
+            text-align: center;
+            width: 346px;
+        }
+        .auto-style6 {
+            width: 346px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -77,7 +100,7 @@
   <div class="row">
     <div class="col-sm-12 well">
       <div class="well">
-        <p><a href="#">MestanlıCafe</a></p>
+        <p><a href="#">MestanliCafe</a></p>
         <img src="images/deneme.jpg" class="img-circle" height="65" width="65" alt="Avatar"/>
       </div>
 
@@ -94,14 +117,22 @@
 						<th class="text-center">
 							#
 						</th>
-						<th class="text-center">
+						<th class="auto-style1">
 							Category
 						</th>
-						<th class="text-center">
+						<th class="auto-style5">
 							Name
 						</th>
-						<th class="text-center">
+						<th class="auto-style3">
 							Price
+						</th>
+                        <th class="text-center">
+							Indegredients
+                            (Optional)
+						</th>
+                        <th class="text-center">
+							Prepairing Time
+                            (Optional)
 						</th>
 					</tr>
 				</thead>
@@ -110,24 +141,36 @@
 						<td>
 						1
 						</td>
-						<td>
-						<asp:DropDownList type="select" ID="DropDownList0"  placeholder="category" CssClass='form-control' runat="server"/>
+						<td class="auto-style2">
+						<asp:DropDownList type="select" ID="DropDownList0"  placeholder="category" CssClass='form-control' runat="server">
+                            <asp:ListItem Value="1">asd1</asp:ListItem>
+                            <asp:ListItem Value="2">asd2</asp:ListItem>
+                            <asp:ListItem Value="3">asd3</asp:ListItem>
+                            </asp:DropDownList>
 						
                            
 						</td>
-						<td>
+
+						<td class="auto-style6">
 						<input type="text" name='name0' placeholder='Name' class="form-control"/>
 						</td>
-						<td>
+						<td class="auto-style4">
 						<input type="text" name='price0' placeholder='Price' class="form-control"/>
+						</td> 
+                        <td>
+						<input type="text" name='indgr0' placeholder='indegredients(optional)' class="form-control"/>
+						</td>
+                        <td>
+						<input type="text" name='pretime0' placeholder='preparingTime(optional)' class="form-control"/>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-	     <asp:Button runat="server" Text="Save" />
-         <a id="add_row" class="btn btn-default pull-left">Add Row class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+	     <asp:Button runat="server" Text="Save" OnClick="Unnamed1_Click" />
+         <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+         <asp:TextBox ID="TextBox2" runat="server" Width="524px"></asp:TextBox>
 </div>
 </div>
     </form>
