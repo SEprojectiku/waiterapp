@@ -13,29 +13,7 @@
    <script src="js/EditMenu.js"></script>
     <link href="cssBusiness/EditInfo.css" rel="stylesheet" />
     <title>Edit Menu</title>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-            width: 483px;
-        }
-        .auto-style2 {
-            width: 483px
-        }
-        .auto-style3 {
-            text-align: center;
-            width: 91px;
-        }
-        .auto-style4 {
-            width: 91px;
-        }
-        .auto-style5 {
-            text-align: center;
-            width: 346px;
-        }
-        .auto-style6 {
-            width: 346px;
-        }
-    </style>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -107,10 +85,10 @@
     </div>
   </div>
 
-     <div class="mainbody container-fluid">
+    
  
     <div class="row clearfix">
-		<div class="col-md-12 column">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  column">
 			<table class="table table-bordered table-hover" id="tab_logic">
 				<thead>
 					<tr >
@@ -172,7 +150,7 @@
          <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
          <asp:TextBox ID="TextBox2" runat="server" Width="524px"></asp:TextBox>
 </div>
-</div>
+
     </form>
 </body>
 </html>
