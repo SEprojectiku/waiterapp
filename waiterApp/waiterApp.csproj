@@ -142,6 +142,7 @@
     <Content Include="css\style.css" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="css\themify-icons.css" />
+    <Content Include="EditMenuYeni.aspx" />
     <Content Include="images\deneme.jpg" />
     <Content Include="images\galata.jpg" />
     <Content Include="images\Search.png" />
@@ -223,6 +224,13 @@
     <Compile Include="class\encyption.cs" />
     <Compile Include="class\fillDropDown.cs" />
     <Compile Include="class\insertions.cs" />
+    <Compile Include="EditMenuYeni.aspx.cs">
+      <DependentUpon>EditMenuYeni.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditMenuYeni.aspx.designer.cs">
+      <DependentUpon>EditMenuYeni.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
