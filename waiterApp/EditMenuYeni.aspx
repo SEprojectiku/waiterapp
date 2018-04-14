@@ -124,7 +124,7 @@
                             <td> <asp:TextBox runat="server" Text='<%#Eval("price")%>'></asp:TextBox> </td>
                            
                               <td class="text-center">	<input type="checkbox" name="check" checked='<%#Eval("visibility")%>'/> <span class="label-text">Visibilty</span>
-                             <asp:Button ID="Button1" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Del" CommandArgument='<%#Eval("foodbeveragesID")%>' OnClick="Button1_Click" PostBackUrl="~/EditMenuYeni.aspx" CausesValidation="False"></asp:Button></td>
+                             <asp:Button ID="Button1" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Del" CommandArgument='<%#Eval("foodbeveragesID")%>' OnClick="Button1_Click"></asp:Button></td>
                            </tr>
                         
                         </ItemTemplate>

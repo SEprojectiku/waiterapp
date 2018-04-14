@@ -63,6 +63,16 @@ namespace waiterApp
             con.Close();
             return dt;
         }
+        public DataTable menucategories(int menuID)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select mc.[catName], mc.catID from menucategories mc inner join[business].[menudetails]md on md.catID = mc.catID where md.menuID = '"+menuID+"' group by mc.catName, mc.catID", con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+            return dt;
+        }
         public DataTable tabletypes()
         {
             SqlConnection con = new SqlConnection(connectionString);

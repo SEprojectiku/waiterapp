@@ -19,7 +19,7 @@ namespace waiterApp
             
             if (!Page.IsPostBack)
             {
-                Repeater1.DataSource = fdp.menucategories();
+                Repeater1.DataSource = fdp.menucategories(1); //menu id girilecek
                 Repeater1.DataBind();
 
             }
@@ -29,13 +29,14 @@ namespace waiterApp
         {
             SqlConnection con = new SqlConnection(connectionString);
             
-            SqlCommand komut = new SqlCommand("SELECT * FROM [business].[menudetails] where catID="+Convert.ToInt32(DataBinder.Eval(e.Item.DataItem,"catID")), con);// işletmeye özel sorgu için businessID GİRİLECEK eKSİK
+            SqlCommand komut = new SqlCommand("SELECT * FROM [business].[menudetails] md inner join [business].[menu] m on m.menuID = md.menuID where m.bID = 1 and md.catID=" + Convert.ToInt32(DataBinder.Eval(e.Item.DataItem,"catID")), con);// işletmeye özel sorgu için businessID GİRİLECEK eKSİK
             con.Open();
             Repeater rp = (Repeater)e.Item.FindControl("Repeater2");
+           
             rp.DataSource = komut.ExecuteReader();
             rp.DataBind();
             komut.Dispose();
-            con.Close();
+             con.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,6 +49,8 @@ namespace waiterApp
 
             con.Close();
 
+            Repeater1.DataSource = fdp.menucategories(1);
+            Repeater1.DataBind();
         }
     }
 
