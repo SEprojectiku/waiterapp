@@ -58,8 +58,10 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
 
-            for (int j = 0; j < iteration - 1; j++)
+            for (int j = 0; j < iteration; j++)
             {
+                try
+                {
                 SqlCommand cmd = new SqlCommand("insertTableinfo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@tname", namearr[j]));
@@ -67,6 +69,12 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
                 cmd.Parameters.Add(new SqlParameter("@type", typearr[j]));
                 cmd.Parameters.Add(new SqlParameter("@bid", bid));
                 cmd.ExecuteNonQuery();
+                }
+                catch(Exception e)
+                {
+
+                }
+                
             }
 
             con.Close();

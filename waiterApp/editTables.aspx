@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="editTables.aspx.cs" Inherits="waiterApp.editTables" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="editTables.aspx.cs" Inherits="waiterApp.editTables" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -87,6 +87,7 @@
                       <div class="panel panel-default"> 
                          
                         <div class="panel-body">
+
                     <asp:Repeater ID="Repeater1" runat="server" onitemdatabound="Repeater1_ItemDataBound">
                        <ItemTemplate>
                          
@@ -98,7 +99,6 @@
                               <th class="text-center">Table ID</th>
                               <th class="text-center">Table Name</th>
                               <th class="text-center">Chair Number</th>
-                              <th class="text-center">Availability</th>
                                </tr>
                               </thead>
                            
@@ -109,13 +109,13 @@
                             <ItemTemplate>
                          
                            <tr> 
-                            <td> <%#Eval("tID")%></td>
-                            <td>
-                                <asp:TextBox ID="TextBox2" runat="server" Text='<%#Eval("tName")%>'></asp:TextBox></td>
-                            <td>
-                                <asp:TextBox ID="TextBox3" runat="server" Text='<%#Eval("chairNumber")%>'></asp:TextBox> </td>
-                            <td class="text-center">	<input type="checkbox" name="check" checked="<%#Eval("isAvailable")%>"> <span class="label-text">Visibilty</span> 
-                               <asp:Button ID="Button1" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Del" CommandArgument='<%# Eval("tID") %>' OnClick="Button1_Click" PostBackUrl="~/editTables.aspx" CausesValidation="False"></asp:Button></td>
+                            <td><%#Eval("tID")%> </td>
+                            <td><%#Eval("tName")%></td>
+                            <td><%#Eval("chairNumber")%></td>
+                            <td class="text-center">
+                                
+                               <asp:Button ID="Button1" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Del" CommandArgument='<%# Eval("tID") %>' OnClick="Button1_Click"></asp:Button></td>
+                               
                            </tr>
                         
                         </ItemTemplate>
@@ -124,7 +124,7 @@
                      </table>
                     </ItemTemplate>
                  </asp:Repeater>
-                     
+                            <asp:Button ID="addtable" class="btn btn-default pull-left" runat="server" Text="Add Table" PostBackUrl="~/BusinessAddTable.aspx"/>
                   </div>
                 </div>
         
