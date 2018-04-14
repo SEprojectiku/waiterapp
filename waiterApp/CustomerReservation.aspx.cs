@@ -15,7 +15,7 @@ namespace waiterApp
     public partial class CustomerReservation : System.Web.UI.Page
     {
         fillDropDown filldropdownlist = new fillDropDown();
-
+        insertions insert = new insertions();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -30,7 +30,8 @@ namespace waiterApp
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-        //very soon
+            string mesaj = messageText.Text.ToString();
+            insert.insertReservation(1, Convert.ToInt32(tablename.SelectedValue), Session["date1"].ToString(), Convert.ToInt32(timeList.SelectedValue), mesaj);
         }
         
         public void Calendar1_SelectionChanged(object sender, EventArgs e)

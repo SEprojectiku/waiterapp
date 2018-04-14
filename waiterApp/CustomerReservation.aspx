@@ -123,10 +123,11 @@
 								</ul> 	
 							  
 								<li class="text-info">Additional Message :</li>
-								<li><textarea></textarea></li>
+								<li>
+                                    <asp:TextBox ID="messageText" runat="server" TextMode="MultiLine"></asp:TextBox></li>
 								<div class="clear"></div>
 							  </ul>
-                            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+                            <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
 
 
 

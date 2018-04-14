@@ -71,5 +71,22 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
 
             con.Close();
         }
+        public void insertReservation(int userID,int tableID, string date, int time, string message)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("insertReservation", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@userID", userID));
+            cmd.Parameters.Add(new SqlParameter("@tableID", tableID));
+            cmd.Parameters.Add(new SqlParameter("@date", date));
+            cmd.Parameters.Add(new SqlParameter("@time", time));
+            cmd.Parameters.Add(new SqlParameter("@message", message));
+            cmd.ExecuteNonQuery();
+
+
+            con.Close();
+        }
 }
 }
