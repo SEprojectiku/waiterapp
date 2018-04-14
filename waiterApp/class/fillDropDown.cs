@@ -112,6 +112,23 @@ namespace waiterApp
             return dt;
             
         }
+        public DataSet listReservations(int bid, int resStatus)
+        {
+
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            using (var cmd = new SqlCommand("listReservations", con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@bid", bid));
+                cmd.Parameters.Add(new SqlParameter("@resStatus", resStatus));
+                da.Fill(ds);
+            }
+            con.Close();
+            return ds;
+        }
 
     }
 }
