@@ -146,6 +146,7 @@
     <Content Include="css\themify-icons.css" />
     <Content Include="CustomerReservation.aspx" />
     <Content Include="EditMenuYeni.aspx" />
+    <Content Include="editTables.aspx" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="images\1.jpg" />
@@ -272,6 +273,13 @@
     </Compile>
     <Compile Include="EditMenuYeni.aspx.designer.cs">
       <DependentUpon>EditMenuYeni.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editTables.aspx.cs">
+      <DependentUpon>editTables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editTables.aspx.designer.cs">
+      <DependentUpon>editTables.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
