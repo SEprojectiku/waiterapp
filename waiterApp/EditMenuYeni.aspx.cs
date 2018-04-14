@@ -38,8 +38,18 @@ namespace waiterApp
             con.Close();
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            Button Button1 = (Button)sender;
+            con.Open();
+            SqlCommand delete = new SqlCommand("delete from [business].[menudetails] where foodbeveragesID = '" + Button1.CommandArgument + "'", con);
+            delete.ExecuteNonQuery();
 
+            con.Close();
 
-
+        }
     }
+
+
 }

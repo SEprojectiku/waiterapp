@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/EditInfo.css" type="text/css" rel="stylesheet"/>
+
     <title>EditMenuYeni</title>
 </head>
 <body>
@@ -84,18 +85,21 @@
              <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                  
-                       
-                      <div class="panel panel-default"> 
+                   
+
+                         <div class="panel panel-default"> 
                          
                         <div class="panel-body">
-                    <asp:Repeater ID="Repeater1" runat="server" onitemdatabound="Repeater1_ItemDataBound">
+                      
+                  
+                         <asp:Repeater ID="Repeater1" runat="server" onitemdatabound="Repeater1_ItemDataBound">
                        <ItemTemplate>
-                         
+                             
                         
                        <table class="table table-striped custab">  
                           
                                <thead>
-                               
+                                   
                                <tr>
                               <th class="text-center">Name</th>
                               <th class="text-center">Ingredients</th>
@@ -105,20 +109,22 @@
                               </thead>
                            
                             <h2 class="panel-title pull-left"><%#Eval("catName") %></h2>
-                           
-                           <asp:Repeater ID="Repeater2" runat="server">
+                      
+                              <asp:Repeater ID="Repeater2" runat="server">
                        
                              
-                              
                            
                             
-                            <ItemTemplate>
+                               <ItemTemplate>
                          
                            <tr> 
-                            <td> <%#Eval("foodbeveragesName")%></td>
-                            <td> <%#Eval("ingredients")%></td>
-                            <td> <%#Eval("price")%></td>
-                            <td class="text-center">	<input type="checkbox" name="check"> <span class="label-text">Visibilty</span> <button type="button" class="btn btn-danger btn-xs  " style="float:right;"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                              
+                            <td> <asp:TextBox runat="server" Text='<%#Eval("foodbeveragesName")%>'></asp:TextBox> </td>
+                            <td> <asp:TextBox runat="server" Text='<%#Eval("ingredients")%>'></asp:TextBox> </td>
+                            <td> <asp:TextBox runat="server" Text='<%#Eval("price")%>'></asp:TextBox> </td>
+                           
+                              <td class="text-center">	<input type="checkbox" name="check" checked='<%#Eval("visibility")%>'/> <span class="label-text">Visibilty</span>
+                             <asp:Button ID="Button1" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Del" CommandArgument='<%#Eval("foodbeveragesID")%>' OnClick="Button1_Click" PostBackUrl="~/EditMenuYeni.aspx" CausesValidation="False"></asp:Button></td>
                            </tr>
                         
                         </ItemTemplate>
@@ -127,14 +133,12 @@
                      </table>
                     </ItemTemplate>
                  </asp:Repeater>
-                     
+
                   </div>
                 </div>
         
-        
-        
-        
-        
+            
+       
         
         
         
