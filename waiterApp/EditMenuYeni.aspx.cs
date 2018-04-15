@@ -13,7 +13,7 @@ namespace waiterApp
     {
         string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         fillDropDown fdp = new fillDropDown();
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -50,8 +50,8 @@ namespace waiterApp
             delete.ExecuteNonQuery();
 
             con.Close();
-
-            Repeater1.DataSource = fdp.menucategories(1);
+            int menuid = Convert.ToInt32(Session["menuID"].ToString());
+            Repeater1.DataSource = fdp.menucategories(menuid);
             Repeater1.DataBind();
         }
 
