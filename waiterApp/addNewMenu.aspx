@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BusinessAddTable.aspx.cs" Inherits="waiterApp.BusinessAddTable" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addNewMenu.aspx.cs" Inherits="waiterApp.addNewMenu" %>
 
 <!DOCTYPE html>
 
@@ -10,27 +10,13 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script src="js/addTable.js"></script>
+   <script src="js/addMenu.js"></script>
     <link href="cssBusiness/EditInfo.css" rel="stylesheet" />
     <title>Edit Menu</title>
     <style type="text/css">
         .auto-style1 {
             text-align: center;
             width: 299px;
-        }
-        .auto-style2 {
-            width: 299px
-        }
-        .auto-style3 {
-            text-align: center;
-            width: 91px;
-        }
-        .auto-style4 {
-            width: 91px;
-        }
-        .auto-style5 {
-            text-align: center;
-            width: 302px;
         }
         .auto-style6 {
             width: 302px;
@@ -125,15 +111,8 @@
 							#
 						</th>
 						<th class="auto-style1">
-							Table Type
-						</th>
-						<th class="auto-style5">
-							Name
-						</th>
-						<th class="auto-style3">
-							Chair Number
-						</th>
-               
+							Menu name</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -141,23 +120,12 @@
 						<td class="auto-style8">
 						1
 						</td>
-						<td class="auto-style2">
-						<asp:DropDownList type="select" ID="DropDownList0"  placeholder="Type" CssClass='form-control' runat="server">
-                            <asp:ListItem Value="1">asd1</asp:ListItem>
-                            <asp:ListItem Value="2">asd2</asp:ListItem>
-                            <asp:ListItem Value="3">asd3</asp:ListItem>
-                            </asp:DropDownList>
 						
-                           
-						</td>
 
 						<td class="auto-style6">
 						<input type="text" name='name0' placeholder='Name' class="form-control"/>
 						</td>
-						<td class="auto-style4">
-						<input type="text" name='chair0' placeholder='Chair Number' class="form-control"/>
-						</td> 
-                        
+						
 					</tr>
 				</tbody>
 			</table>
@@ -165,8 +133,7 @@
 	</div>
 	     <asp:Button runat="server" Text="Save" OnClick="Unnamed1_Click" />
          <a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
-         
-</div>
+         </div>
 </div>
     </form>
 </body>

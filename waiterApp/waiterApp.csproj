@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addNewMenu.aspx" />
     <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
     <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
     <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
@@ -157,6 +158,7 @@
     <Content Include="images\Upload.jpeg" />
     <Content Include="images\waffle.jpg" />
     <Content Include="Index.aspx" />
+    <Content Include="js\addMenu.js" />
     <Content Include="js\addTable.js" />
     <Content Include="js\EditMenu.js" />
     <Content Include="js\jquery-1.12.0.min.js" />
@@ -230,6 +232,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addNewMenu.aspx.cs">
+      <DependentUpon>addNewMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addNewMenu.aspx.designer.cs">
+      <DependentUpon>addNewMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BusinessAddTable.aspx.cs">
       <DependentUpon>BusinessAddTable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

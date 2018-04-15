@@ -126,7 +126,7 @@
                     </ItemTemplate></asp:DataList>
 
 
-                            <asp:Button ID="additem" class="btn btn-default pull-left" runat="server" Text="Add Item" PostBackUrl="~/BusinessEditMenu.aspx" />
+                            <asp:Button ID="additem" class="btn btn-default pull-left" runat="server" Text="Add New Menu" PostBackUrl="~/addNewMenu.aspx" />
                   </div>
                 </div>
         

@@ -28,9 +28,10 @@ namespace waiterApp
 
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            int menuid = Convert.ToInt32(Session["menuID"].ToString());
             SqlConnection con = new SqlConnection(connectionString);
             
-            SqlCommand komut = new SqlCommand("SELECT * FROM [business].[menudetails] md inner join [business].[menu] m on m.menuID = md.menuID where m.bID = 1 and md.catID=" + Convert.ToInt32(DataBinder.Eval(e.Item.DataItem,"catID")), con);// işletmeye özel sorgu için businessID GİRİLECEK eKSİK
+            SqlCommand komut = new SqlCommand("SELECT * FROM [business].[menudetails] md inner join [business].[menu] m on m.menuID = md.menuID where m.bID = 1 and m.menuID = '"+menuid+"' and md.catID=" + Convert.ToInt32(DataBinder.Eval(e.Item.DataItem,"catID")), con);// işletmeye özel sorgu için businessID GİRİLECEK eKSİK
             con.Open();
             Repeater rp = (Repeater)e.Item.FindControl("Repeater2");
            

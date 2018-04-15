@@ -10,7 +10,7 @@
 namespace waiterApp {
     
     
-    public partial class BusinessAddTable {
+    public partial class addNewMenu {
         
         /// <summary>
         /// form1 control.
@@ -38,14 +38,5 @@ namespace waiterApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton SearchButton;
-        
-        /// <summary>
-        /// DropDownList0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList0;
     }
 }

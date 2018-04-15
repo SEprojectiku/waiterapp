@@ -106,10 +106,32 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
             {
 
             }
-            
-
-
             con.Close();
         }
-}
+        public void insertnewMenu(int bid, ArrayList menuname, int iteration)
+        {
+            string[] namearr = new string[iteration];
+            menuname.CopyTo(namearr);
+            SqlConnection con = new SqlConnection(connectionString);
+
+            con.Open();
+            for (int j = 0; j < iteration; j++)
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("insertnewmenu", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@bid", bid));
+                    cmd.Parameters.Add(new SqlParameter("@menuname", namearr[j]));
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+                
+            con.Close();
+        }
+    }
 }
