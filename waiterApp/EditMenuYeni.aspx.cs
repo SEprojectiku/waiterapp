@@ -52,6 +52,11 @@ namespace waiterApp
             Repeater1.DataSource = fdp.menucategories(1);
             Repeater1.DataBind();
         }
+
+        protected void additem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

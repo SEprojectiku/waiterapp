@@ -32,6 +32,8 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
 
             for (int j = 0; j < iteration-1; j++)
             {
+                try
+                {
             SqlCommand cmd = new SqlCommand("insertfoods", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@menuid", menuid));
@@ -40,7 +42,13 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
             cmd.Parameters.Add(new SqlParameter("@ingrediends", indgrarr[j]));
             cmd.Parameters.Add(new SqlParameter("@pretime", pretimearr[j]));
             cmd.Parameters.Add(new SqlParameter("@price", pricearr[j]));
-                cmd.ExecuteNonQuery();
+             cmd.ExecuteNonQuery();
+                }
+                catch(Exception e)
+                {
+
+                }
+           
             }
 
             con.Close();
@@ -83,7 +91,8 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-
+            try
+            {
             SqlCommand cmd = new SqlCommand("insertReservation", con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@userID", userID));
@@ -92,6 +101,12 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
             cmd.Parameters.Add(new SqlParameter("@time", time));
             cmd.Parameters.Add(new SqlParameter("@message", message));
             cmd.ExecuteNonQuery();
+            }
+            catch(Exception e)
+            {
+
+            }
+            
 
 
             con.Close();
