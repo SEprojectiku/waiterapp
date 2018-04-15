@@ -140,13 +140,16 @@
     <Content Include="css\icomoon.css" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\magnific-popup.css" />
+    <Content Include="css\main.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\owl.theme.default.min.css" />
     <Content Include="css\style.css" />
     <Content Include="css\styleres.css" />
     <Content Include="css\StyleSheet1.css" />
     <Content Include="css\themify-icons.css" />
+    <Content Include="css\util.css" />
     <Content Include="CustomerReservation.aspx" />
+    <Content Include="CustomerSetTable.aspx" />
     <Content Include="EditMenuYeni.aspx" />
     <Content Include="editTables.aspx" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -284,6 +287,13 @@
     </Compile>
     <Compile Include="CustomerReservation.aspx.designer.cs">
       <DependentUpon>CustomerReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSetTable.aspx.cs">
+      <DependentUpon>CustomerSetTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerSetTable.aspx.designer.cs">
+      <DependentUpon>CustomerSetTable.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMenuYeni.aspx.cs">
       <DependentUpon>EditMenuYeni.aspx</DependentUpon>

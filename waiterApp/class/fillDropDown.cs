@@ -176,14 +176,14 @@ namespace waiterApp
             DataSet ds = new DataSet();
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            using (var cmd = new SqlCommand("listSetteableTables", con))
+            using (var cmd = new SqlCommand("listSetteableTables2", con))
             using (var da = new SqlDataAdapter(cmd))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@bid", bid));
-                cmd.Parameters.Add(new SqlParameter("@date1", bid));
-                cmd.Parameters.Add(new SqlParameter("@date2", bid));
-                cmd.Parameters.Add(new SqlParameter("@time", bid));
+                cmd.Parameters.Add(new SqlParameter("@date1", date1));
+                cmd.Parameters.Add(new SqlParameter("@date2", date2));
+                cmd.Parameters.Add(new SqlParameter("@time", time));
                 da.Fill(ds);
             }
             con.Close();
