@@ -277,6 +277,7 @@
     <Compile Include="class\encyption.cs" />
     <Compile Include="class\fillDropDown.cs" />
     <Compile Include="class\insertions.cs" />
+    <Compile Include="class\timedatecalculater.cs" />
     <Compile Include="CustomerReservation.aspx.cs">
       <DependentUpon>CustomerReservation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
