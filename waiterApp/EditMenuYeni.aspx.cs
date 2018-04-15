@@ -60,6 +60,32 @@ namespace waiterApp
             
             Server.Transfer("BusinessEditMenu.aspx", true);
         }
+
+        protected void showbutton_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            Button Button1 = (Button)sender;
+            con.Open();
+            SqlCommand update = new SqlCommand("update [business].[menudetails] set visibility ='" + 1 + "' where foodbeveragesID = '" + Button1.CommandArgument + "'", con);
+            update.ExecuteNonQuery();
+            con.Close();
+            int menuid = Convert.ToInt32(Session["menuID"].ToString());
+            Repeater1.DataSource = fdp.menucategories(menuid);
+            Repeater1.DataBind();
+        }
+
+        protected void hidebutton_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            Button Button1 = (Button)sender;
+            con.Open();
+            SqlCommand update = new SqlCommand("update [business].[menudetails] set visibility ='" + 0 + "' where foodbeveragesID = '" + Button1.CommandArgument + "'", con);
+            update.ExecuteNonQuery();
+            con.Close();
+            int menuid = Convert.ToInt32(Session["menuID"].ToString());
+            Repeater1.DataSource = fdp.menucategories(menuid);
+            Repeater1.DataBind();
+        }
     }
 
 

@@ -111,10 +111,7 @@
                             <h2 class="panel-title pull-left"><%#Eval("catName") %></h2>
                       
                               <asp:Repeater ID="Repeater2" runat="server">
-                       
-                             
-                           
-                            
+        
                                <ItemTemplate>
                          
                            <tr> 
@@ -123,7 +120,10 @@
                             <td> <asp:TextBox runat="server" Text='<%#Eval("ingredients")%>'></asp:TextBox> </td>
                             <td> <asp:TextBox runat="server" Text='<%#Eval("price")%>'></asp:TextBox> </td>
                            
-                              <td class="text-center">	<input type="checkbox" name="check" checked='<%#Eval("visibility")%>'/> <span class="label-text">Visibilty</span>
+                              <td class="text-center">	<%--<input type="checkbox" name="check" checked='<%#Eval("visibility")%>' aria-invalid="true" disabled="disabled" /> <span class="label-text">Visibilty</span>--%>
+                                  <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%#Eval("visibility")%>' Enabled="false"/>
+                                  <asp:Button ID="showbutton" runat="server" Text="Show" CommandArgument='<%#Eval("foodbeveragesID")%>' OnClick="showbutton_Click"/>
+                                  <asp:Button ID="hidebutton" runat="server" Text="Hide" CommandArgument='<%#Eval("foodbeveragesID")%>' OnClick="hidebutton_Click"/>
                              <asp:Button ID="Button1" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Del" CommandArgument='<%#Eval("foodbeveragesID")%>' OnClick="Button1_Click"></asp:Button></td>
                            </tr>
                         
