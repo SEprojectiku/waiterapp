@@ -24,7 +24,11 @@ namespace waiterApp
 
         protected void editbutton_Click(object sender, EventArgs e)
         {
-
+            Button Button1 = (Button)sender;
+            Session["tableID"] = Button1.CommandArgument.ToString();
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand update = new SqlCommand("update [business].[tableinfo] set isAvailable = 0 where tID = " + Button1.CommandArgument, con);
+            update.ExecuteNonQuery();
         }
 
         private void fill()
