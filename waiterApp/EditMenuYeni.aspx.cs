@@ -19,7 +19,8 @@ namespace waiterApp
             
             if (!Page.IsPostBack)
             {
-                Repeater1.DataSource = fdp.menucategories(1); //menu id girilecek
+                int menuid = Convert.ToInt32(Session["menuID"].ToString());
+                Repeater1.DataSource = fdp.menucategories(menuid); //menu id girilecek
                 Repeater1.DataBind();
 
             }
@@ -55,7 +56,8 @@ namespace waiterApp
 
         protected void additem_Click(object sender, EventArgs e)
         {
-
+            
+            Server.Transfer("BusinessEditMenu.aspx", true);
         }
     }
 

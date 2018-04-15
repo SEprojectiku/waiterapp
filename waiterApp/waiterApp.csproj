@@ -125,6 +125,7 @@
     <Content Include="BusinessEditInfo.aspx" />
     <Content Include="BusinessEditMenu.aspx" />
     <Content Include="BusinessHome.aspx" />
+    <Content Include="BusinessListMenus.aspx" />
     <Content Include="cssBusiness\BusinessHomeSS.css" />
     <Content Include="cssBusiness\EditInfo.css" />
     <Content Include="css\animate.css" />
@@ -256,6 +257,13 @@
     </Compile>
     <Compile Include="BusinessHome.aspx.designer.cs">
       <DependentUpon>BusinessHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessListMenus.aspx.cs">
+      <DependentUpon>BusinessListMenus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessListMenus.aspx.designer.cs">
+      <DependentUpon>BusinessListMenus.aspx</DependentUpon>
     </Compile>
     <Compile Include="class\encyption.cs" />
     <Compile Include="class\fillDropDown.cs" />

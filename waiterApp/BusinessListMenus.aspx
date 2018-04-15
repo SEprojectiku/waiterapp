@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditMenuYeni.aspx.cs" Inherits="waiterApp.EditMenuYeni" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BusinessListMenus.aspx.cs" Inherits="waiterApp.BusinessListMenus" enableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -90,50 +90,43 @@
                          <div class="panel panel-default"> 
                          
                         <div class="panel-body">
-                      
-                  
-                         <asp:Repeater ID="Repeater1" runat="server" onitemdatabound="Repeater1_ItemDataBound">
-                       <ItemTemplate>
-                             
+                       
                         
-                       <table class="table table-striped custab">  
+                     
                           
                                <thead>
                                    
                                <tr>
+                              <th class="text-center">Menu ID</th>
                               <th class="text-center">Name</th>
-                              <th class="text-center">Ingredients</th>
-                              <th class="text-center">Price</th>
+                              <th class="text-center">Last Update</th>
+                                   <th class="text-center">isOnline</th>
                               <th class="text-center"></th>
                                </tr>
                               </thead>
-                           
-                            <h2 class="panel-title pull-left"><%#Eval("catName") %></h2>
-                      
-                              <asp:Repeater ID="Repeater2" runat="server">
-                       
-                             
-                           
-                            
-                               <ItemTemplate>
-                         
-                           <tr> 
+                          
+                            <asp:DataList ID="DataList1" runat="server"><ItemTemplate>
                               
-                            <td> <asp:TextBox runat="server" Text='<%#Eval("foodbeveragesName")%>'></asp:TextBox> </td>
-                            <td> <asp:TextBox runat="server" Text='<%#Eval("ingredients")%>'></asp:TextBox> </td>
-                            <td> <asp:TextBox runat="server" Text='<%#Eval("price")%>'></asp:TextBox> </td>
-                           
-                              <td class="text-center">	<input type="checkbox" name="check" checked='<%#Eval("visibility")%>'/> <span class="label-text">Visibilty</span>
-                             <asp:Button ID="Button1" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Del" CommandArgument='<%#Eval("foodbeveragesID")%>' OnClick="Button1_Click"></asp:Button></td>
+                           <table class="table table-striped custab">  
+                           <tr> 
+                       
+                            <td> <asp:Label ID="idlbl" runat="server" Text='<%#Eval("menuID")%>'></asp:Label> </td>
+                            <td> <asp:TextBox id="nametxt" runat="server" Text='<%#Eval("menuName")%>'></asp:TextBox> </td>
+                            <td> <%#Eval("lastUpdatedDate")%> </td>
+                           <td> <asp:CheckBox ID="onlinetick" runat="server" Checked='<%#Eval("isMenuOnline")%>' Enabled="false"/> </td>
+
+                             <td>
+                             <asp:Button ID="offlinebutton" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Set Offline" CommandArgument='<%#Eval("menuID")%>' OnClick="offlinebutton_Click"></asp:Button>
+                             <asp:Button ID="onlinebutton" runat="server" style="float:right;" Text="Set Online" CommandArgument='<%#Eval("menuID")%>' OnClick="onlinebutton_Click"></asp:Button>
+                             <asp:Button ID="editbutton" runat="server" style="float:right;" Text="Edit Items" CommandArgument='<%#Eval("menuID")%>' OnClick="editbutton_Click"></asp:Button>
+                              </td>
                            </tr>
                         
-                        </ItemTemplate>
-                        
-                       </asp:Repeater>
                      </table>
-                    </ItemTemplate>
-                 </asp:Repeater>
-                            <asp:Button ID="additem" class="btn btn-default pull-left" runat="server" Text="Add Item" OnClick="additem_Click" />
+                    </ItemTemplate></asp:DataList>
+
+
+                            <asp:Button ID="additem" class="btn btn-default pull-left" runat="server" Text="Add Item" PostBackUrl="~/BusinessEditMenu.aspx" />
                   </div>
                 </div>
         

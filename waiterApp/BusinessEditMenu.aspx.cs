@@ -71,8 +71,8 @@ namespace waiterApp
                 i++;
 
             }
-
-            insert.insertMenu(catid, name, price, ingr, pretime, i, 1);
+            int menuid = Convert.ToInt32(Session["menuID"].ToString());
+            insert.insertMenu(catid, name, price, ingr, pretime, i, menuid);
             
         }
     }

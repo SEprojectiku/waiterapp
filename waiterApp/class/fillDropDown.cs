@@ -139,6 +139,21 @@ namespace waiterApp
             con.Close();
             return ds;
         }
+        public DataSet listMenus(int bid)
+        {
 
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            using (var cmd = new SqlCommand("listMenus", con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@bid", bid));
+                da.Fill(ds);
+            }
+            con.Close();
+            return ds;
+        }
     }
 }
