@@ -176,7 +176,7 @@ namespace waiterApp
             DataSet ds = new DataSet();
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            using (var cmd = new SqlCommand("listSetteableTables2", con))
+            using (var cmd = new SqlCommand("listSetteableTables", con))
             using (var da = new SqlDataAdapter(cmd))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
