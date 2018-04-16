@@ -135,32 +135,43 @@
 
       </div>
      <div class="panel-body">
-<asp:DataList ID="DataList1" runat="server"><ItemTemplate>
-    <table class="table table-striped">
+
+    <table class="table  table-striped custab">
     <thead >
       <tr  >
-        <th class="container text-center">Date</th>
-        <th class="container text-center" >Time</th>
-        <th class="container text-center">Table No</th>
-        <th class="container text-center" >Request</th>
+        <th class=" text-center">Date</th>
+        <th class="text-center" >Time</th>
+        <th class=" text-center">Table No</th>
+        <th class=" text-center" >Request</th>
         
       </tr>
     </thead>
-    <tbody>
-         
+      <tbody>
+        <asp:Repeater ID="DataList1" runat="server">
+            <ItemTemplate> 
+      
+      
+        
       <tr>
-        <td><asp:Label ID="Label2" runat="server" Text='<%# Eval("Dates") %>'></asp:Label></td>
-        <td><asp:Label ID="Label3" runat="server" Text='<%# Eval("Times") %>'></asp:Label></td>
-        <td><asp:Label ID="Label4" runat="server" Text='<%# Eval("tName") %>'></asp:Label></td>
+        <td ><asp:Label ID="Label2" runat="server" Text='<%# Eval("Dates") %>'></asp:Label></td>
+        <td  ><asp:Label ID="Label3" runat="server" Text='<%# Eval("Times") %>'></asp:Label></td>
+        <td ><asp:Label ID="Label4" runat="server" Text='<%# Eval("tName") %>'></asp:Label></td>
         <td><asp:Label ID="Label5" runat="server" Text='<%# Eval("Request") %>'></asp:Label></td>
      </tr>
+     </ItemTemplate>
+    </asp:Repeater>  
+    
+ </tbody>
+  
    
-     
-  </table>
-</tbody></ItemTemplate></asp:DataList>  
-         <asp:Button ID="Button1" runat="server" Text="Details" OnClick="Button1_Click"/>
+         </table> 
+      
+            
+ </div>
+  
+        <asp:Button ID="Button1" runat="server" Text="Details" OnClick="Button1_Click"/>
 
-      </div>
+     
     </div>
     
  </div>
