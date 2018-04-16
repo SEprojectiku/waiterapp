@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerSetTable.aspx.cs" Inherits="waiterApp.CustomerSetTable" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BusinessViewTables.aspx.cs" Inherits="waiterApp.BusinessViewTables" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -85,16 +85,18 @@
              <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                  
+                   
+
                          <div class="panel panel-default"> 
                          
                         <div class="panel-body">
-
+                       
                                <thead>
-                                   
+                          
                                <tr>
-                              <th class="text-center">Table Type</th>
+                              <th class="text-center">Menu ID</th>
                               <th class="text-center">Name</th>
-                              <th class="text-center">chair Number</th>
+                              <th class="text-center">isOccupied</th>
                               <th class="text-center"></th>
                                </tr>
                               </thead>
@@ -104,23 +106,28 @@
                            <table class="table table-striped custab">  
                            <tr> 
                        
-                            <td> <asp:Label ID="typelbl" runat="server" Text='<%#Eval("tableType")%>'></asp:Label> </td>
+                           <td> <asp:Label ID="typelbl" runat="server" Text='<%#Eval("tableType")%>'></asp:Label> </td>
                             <td> <asp:Label ID="namelbl" runat="server" Text='<%#Eval("tName")%>'></asp:Label> </td>
                             <td> <asp:Label ID="chairnumlbl" runat="server" Text='<%#Eval("chairNumber")%>'></asp:Label> </td>
-                          
-
+                               <td> <asp:CheckBox ID="CheckBox1" runat="server" Enabled="false" Checked='<%#Eval("isAvailable")%>'/> </td>
                              <td>
-                             <asp:Button ID="sitbutton" runat="server" style="float:right;" Text="Sit Table" CommandArgument='<%#Eval("tID")%>' OnClick="editbutton_Click"></asp:Button>
+                             <asp:Button ID="setbutton" runat="server" class="btn btn-danger btn-xs" style="float:right;" Text="Set Occupied" CommandArgument='<%#Eval("tID")%>' OnClick="setbutton_Click"></asp:Button>
+                             <asp:Button ID="unsetbutton" runat="server" style="float:right;" Text="unset Occupied" CommandArgument='<%#Eval("tID")%>' OnClick="unsetbutton_Click"></asp:Button>
+                             
                               </td>
                            </tr>
                         
                      </table>
                     </ItemTemplate></asp:DataList>
 
-                            
                   </div>
                 </div>
-
+        
+            
+       
+        
+        
+        
           </div>
     </div>
 </div>
