@@ -135,40 +135,30 @@
 
       </div>
      <div class="panel-body">
-
+<asp:DataList ID="DataList1" runat="server"><ItemTemplate>
     <table class="table table-striped">
     <thead >
       <tr  >
         <th class="container text-center">Date</th>
-        <th class="container text-center" >TableNo</th>
-        <th class="container text-center">Person</th>
-        <th class="container text-center" >Status</th>
+        <th class="container text-center" >Time</th>
+        <th class="container text-center">Table No</th>
+        <th class="container text-center" >Request</th>
         
       </tr>
     </thead>
     <tbody>
+         
       <tr>
-        <td>09/07</td>
-        <td>20</td>
-        <td>6</td>
-        <td>Confirmed</td>
+        <td><asp:Label ID="Label2" runat="server" Text='<%# Eval("Dates") %>'></asp:Label></td>
+        <td><asp:Label ID="Label3" runat="server" Text='<%# Eval("Times") %>'></asp:Label></td>
+        <td><asp:Label ID="Label4" runat="server" Text='<%# Eval("tName") %>'></asp:Label></td>
+        <td><asp:Label ID="Label5" runat="server" Text='<%# Eval("Request") %>'></asp:Label></td>
      </tr>
-      <tr>
-        <td>09/07 </td>
-        <td>12</td>
-        <td>3</td>
-        <td>Confirmed</td>
-      </tr>
-      <tr>
-        <td>09/07</td>
-        <td>14</td>
-        <td>2</td>
-        <td>Cancelled</td>
-      </tr>
-    </tbody>
+   
+     
   </table>
-
-
+</tbody></ItemTemplate></asp:DataList>  
+         <asp:Button ID="Button1" runat="server" Text="Details" OnClick="Button1_Click"/>
 
       </div>
     </div>
