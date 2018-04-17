@@ -49,6 +49,43 @@ namespace waiterApp
             else
             {
                 Response.Redirect(Request.RawUrl);
+                err_lbl.Visible = true;
+            }
+            dr.Close();
+            connection.Close();
+        }
+
+        protected void busslogin_Click(object sender, EventArgs e)
+        {
+            SqlCommand query = new SqlCommand("SELECT * FROM business.memberinfo WHERE email=@email AND userPassword=@pass", connection);
+
+            query.Parameters.Add("@email", SqlDbType.NVarChar).Value = emailBusiness.Text;
+            query.Parameters.Add("@pass", SqlDbType.NVarChar).Value = passBus.Text;
+
+            connection.Open();
+
+            SqlDataReader dr = query.ExecuteReader();
+            // Eğer bir kayıt varsa
+            if (dr.Read())
+            {
+                HttpCookie myCookie = new HttpCookie("user");
+                myCookie["name"] = emailLogin.Text;
+                myCookie.Expires = DateTime.Now.AddDays(1);
+
+
+
+                myCookie["userID"] = dr["memberID"].ToString();
+                //myCookie["fname"] = dr["FirstName"].ToString();
+                //myCookie["lname"] = dr["LastName"].ToString();
+                //myCookie["isAdmin"] = dr["isAdmin"].ToString();
+                Response.Cookies.Add(myCookie);
+                Response.Redirect("Index.aspx");
+
+            }
+            else
+            {
+                
+                err_lbl.Visible = true;
             }
             dr.Close();
             connection.Close();

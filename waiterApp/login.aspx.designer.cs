@@ -13,40 +13,31 @@ namespace waiterApp {
     public partial class login {
         
         /// <summary>
-        /// username1 control.
+        /// emailBusiness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox username1;
+        protected global::System.Web.UI.WebControls.TextBox emailBusiness;
         
         /// <summary>
-        /// password1signup control.
+        /// passBus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password1signup;
+        protected global::System.Web.UI.WebControls.TextBox passBus;
         
         /// <summary>
-        /// password2signup control.
+        /// busslogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password2signup;
-        
-        /// <summary>
-        /// continue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button @continue;
+        protected global::System.Web.UI.WebControls.Button busslogin;
         
         /// <summary>
         /// emailLogin control.
@@ -74,5 +65,14 @@ namespace waiterApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Login;
+        
+        /// <summary>
+        /// err_lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label err_lbl;
     }
 }

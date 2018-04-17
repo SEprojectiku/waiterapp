@@ -93,34 +93,28 @@
                                     <div class="form-wrap">
                                         <div class="tab">
                                             <ul class="tab-menu">
-                                                <li class="active gtco-first"><a href="#" data-tab="signup">Sign up</a></li>
-                                                <li class="gtco-second"><a href="#" data-tab="login">Login</a></li>
+                                                <li class="active gtco-first"><a href="#" data-tab="signup">Business</a></li>
+                                                <li class="gtco-second"><a href="#" data-tab="login">Customer</a></li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-content-inner active" data-content="signup">
                                                     <form runat="server">
                                                         <div class="row form-group">
                                                             <div class="col-md-12">
-                                                                <label for="username">Username or Email</label>
-                                                                <asp:TextBox runat="server" ID="username1"  CssClass="form-control"></asp:TextBox>
+                                                                <label for="username">Email</label>
+                                                                <asp:TextBox runat="server" ID="emailBusiness"  CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="row form-group">
                                                             <div class="col-md-12">
                                                                 <label for="password">Password</label>
-                                                                <asp:TextBox runat="server" ID="password1signup" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                                                <asp:TextBox runat="server" ID="passBus" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
+                                                       
                                                         <div class="row form-group">
                                                             <div class="col-md-12">
-                                                                <label for="password2">Repeat Password</label>
-                                                                
-                                                                <asp:TextBox runat="server" ID="password2signup" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row form-group">
-                                                            <div class="col-md-12">
-                                                                <asp:Button runat="server" ID="continue" Text="Continue" CssClass="btn btn-primary" PostBackUrl="~/signup.aspx" />
+                                                                <asp:Button runat="server" ID="busslogin" Text="Login" CssClass="btn btn-primary" OnClick="busslogin_Click"  />
                                                                 
                                                             </div>
                                                         </div>
@@ -146,7 +140,7 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                </div>
+                                                </div><asp:Label runat="server" ID="err_lbl" Text="Email or password wrong!" Visible="false"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
