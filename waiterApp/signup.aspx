@@ -83,10 +83,7 @@
             <asp:Label ID="Label11" runat="server" Text="Currency:"></asp:Label><asp:DropDownList ID="currencylist" CssClass="form-control" runat="server"></asp:DropDownList><br /><br />
         </div>
         </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="businessBtn" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="customerBtn" EventName="Click" />
-            </Triggers>
+
         </asp:UpdatePanel>
             <asp:Button ID="Submit" runat="server" CssClass="btn btn-primary" OnClick="Submit_Click" Text="Submit"  />
         

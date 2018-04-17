@@ -66,7 +66,7 @@ namespace waiterApp
         protected void businessBtn_Click(object sender, EventArgs e)
         {
             
-             x.Visible = false;
+            
             string password = enc.CreateMD5(pass1.Text.Trim());
 
             insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(), "2007-04-16", "M", 3, 1, 1, "asdas", password);
@@ -74,7 +74,7 @@ namespace waiterApp
 
         protected void customerBtn_Click(object sender, EventArgs e)
         {
-            x.Visible = true;
+
             string password = enc.CreateMD5(pass1.Text.Trim());
 
             insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(), "2007-04-16", "M", 3, 1, 1, "asdas", password);
@@ -86,7 +86,6 @@ namespace waiterApp
             //                day.SelectedValue.ToString();
             //string dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
 
-               
                string password = enc.CreateMD5(pass1.Text.Trim());
 
                 insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(),  "2007-04-16", "M", 3, 1, 1, "asdas", password);

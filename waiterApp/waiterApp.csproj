@@ -149,8 +149,10 @@
     <Content Include="css\StyleSheet1.css" />
     <Content Include="css\themify-icons.css" />
     <Content Include="css\util.css" />
+    <Content Include="CustomerBusinessPage.aspx" />
     <Content Include="CustomerReservation.aspx" />
     <Content Include="CustomerSetTable.aspx" />
+    <Content Include="CustomerViewMnu.aspx" />
     <Content Include="EditMenuYeni.aspx" />
     <Content Include="editTables.aspx" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -289,6 +291,13 @@
     <Compile Include="class\fillDropDown.cs" />
     <Compile Include="class\insertions.cs" />
     <Compile Include="class\timedatecalculater.cs" />
+    <Compile Include="CustomerBusinessPage.aspx.cs">
+      <DependentUpon>CustomerBusinessPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerBusinessPage.aspx.designer.cs">
+      <DependentUpon>CustomerBusinessPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerReservation.aspx.cs">
       <DependentUpon>CustomerReservation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,6 +311,13 @@
     </Compile>
     <Compile Include="CustomerSetTable.aspx.designer.cs">
       <DependentUpon>CustomerSetTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViewMnu.aspx.cs">
+      <DependentUpon>CustomerViewMnu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerViewMnu.aspx.designer.cs">
+      <DependentUpon>CustomerViewMnu.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMenuYeni.aspx.cs">
       <DependentUpon>EditMenuYeni.aspx</DependentUpon>
