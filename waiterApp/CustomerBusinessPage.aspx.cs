@@ -23,5 +23,10 @@ namespace waiterApp
         {
             Server.Transfer("CustomerReservation.aspx", true);
         }
+
+        protected void ViewMenubutton_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("CustomerViewMnu.aspx", true);
+        }
     }
 }

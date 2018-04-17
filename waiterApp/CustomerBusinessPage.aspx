@@ -99,7 +99,7 @@
 
     </div>
       <div>
-          <asp:Button ID="ViewMenubutton" runat="server" Text="View Menu" />
+          <asp:Button ID="ViewMenubutton" runat="server" Text="View Menu" OnClick="ViewMenubutton_Click"/>
           <asp:Button ID="rezbutton" runat="server" Text="Resarvation" OnClick="rezbutton_Click"/>
           <asp:Button ID="sitbutton" runat="server" Text="Sit On table" OnClick="sitbutton_Click" />
       </div>
