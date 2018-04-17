@@ -130,8 +130,8 @@
                                                     
                                                         <div class="row form-group">
                                                             <div class="col-md-12">
-                                                                <label for="username">Username or Email</label>
-                                                                 <asp:TextBox runat="server" ID="usernameLogin"  CssClass="form-control"></asp:TextBox>
+                                                                <label for="email"> Email</label>
+                                                                 <asp:TextBox runat="server" ID="emailLogin"  CssClass="form-control"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="row form-group">
@@ -142,7 +142,7 @@
                                                         </div>
                                                         <div class="row form-group">
                                                             <div class="col-md-12">
-                                                                 <asp:Button runat="server" ID="Login" Text="Login" CssClass="btn btn-primary"  />
+                                                                 <asp:Button runat="server" ID="Login" Text="Login" OnClick="Login_Click" CssClass="btn btn-primary"  />
                                                             </div>
                                                         </div>
                                                     </form>

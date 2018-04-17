@@ -14,9 +14,11 @@ namespace waiterApp
     public partial class signup : System.Web.UI.Page
     {
         fillDropDown filldropdownlist = new fillDropDown();
-        string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
+         static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
+        SqlConnection connection = new SqlConnection(connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (!Page.IsPostBack)
             {
                 DataTable dt = filldropdownlist.currency();
@@ -36,6 +38,16 @@ namespace waiterApp
                 countrylist.DataValueField = "id";
                 countrylist.DataSource = dt3;
                 countrylist.DataBind();
+
+                for (int i = 0; i <= 31; i++)
+                    day.Items.Insert(i, new ListItem(i.ToString(), i.ToString()));
+                day.SelectedItem.Text = "Day";
+                for (int i = 0; i <= 12; i++)
+                    mount.Items.Insert(i, new ListItem(i.ToString(), i.ToString()));
+                mount.SelectedItem.Text = "Mount";
+                for (int i = 1940; i <= 2018; i++)
+                    year.Items.Insert(i-1940, new ListItem(i.ToString(), i.ToString()));
+                year.SelectedItem.Text = "Year";
             }
         }
 
@@ -47,6 +59,64 @@ namespace waiterApp
             cityist.DataValueField = "id";
             cityist.DataSource = dt;
             cityist.DataBind();
+        }
+
+        protected void businessBtn_Click(object sender, EventArgs e)
+        {
+            
+             x.Visible = false;
+        }
+
+        protected void customerBtn_Click(object sender, EventArgs e)
+        {
+            x.Visible = true;
+        }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            //string birth = year.SelectedValue.ToString() +"-"+ mount.SelectedValue.ToString() +"-"+
+            //                day.SelectedValue.ToString();
+            //string dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
+            try
+            {
+
+               
+                int basarili;
+                connection.Open();
+                SqlCommand submit = new SqlCommand("insert into users.userinfo(firstName,lastName,userName,phoneNumber,email,userPassword,birthDay,gender,city,lang " +
+                                                                    ", currency, registerDate, membershipStatus, photoPath) " +
+                                                                    "VALUES(@fname,@lname,@uname,@phone,@email,@password,@bday,@gendr,@city,@lang,@curr,@regisdate,@memstatus,@phopath)");
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    submit.Parameters.AddWithValue("@fname ", nameBox.Text.Trim());
+                    submit.Parameters.AddWithValue("@lname ", srnameBox.Text.Trim());
+                    submit.Parameters.AddWithValue("@uname ", usename.Text.Trim());
+                    submit.Parameters.AddWithValue("@email ", email_txtb.Text.Trim());
+                    submit.Parameters.AddWithValue("@phone ", phone1.Text.Trim());
+                    submit.Parameters.AddWithValue("@password ", pass1.Text.Trim());
+                    submit.Parameters.AddWithValue("@bday ", "2007-04-16");
+                    submit.Parameters.AddWithValue("@gendr ", "M");
+                    submit.Parameters.AddWithValue("@city ", 3);
+                    submit.Parameters.AddWithValue("@lang ", 1);
+                    submit.Parameters.AddWithValue("@curr ", 1);
+                    submit.Parameters.AddWithValue("@regisdate ", "2007-04-16");
+                    submit.Parameters.AddWithValue("@memstatus ", 1);
+                    submit.Parameters.AddWithValue("@phopath ", "sdfasdf");
+                    submit.Connection = connection;
+
+                    basarili = Convert.ToInt32(submit.ExecuteScalar());
+                    connection.Close();
+                }
+
+
+                success.Visible = true;
+                
+
+            }
+            catch (Exception)
+            {
+                errorr_panel.Visible = true;
+            }
         }
     }
 }

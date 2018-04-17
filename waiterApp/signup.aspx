@@ -10,26 +10,59 @@
                     <asp:Label ID="fail" runat="server" Visible="false">Check your values again please</asp:Label>
         </asp:Panel>
     <div>
+        <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
+        <asp:UpdatePanel runat="server" ID="updatePanel1"><ContentTemplate>
+        <div class="form-group col-md-6">
+            
+        <div class="row justify-content-center">
+         <div class="btn-group mt-1 mb-3" role="group" aria-label="Basic example">
+             <asp:Button runat="server" ID="customerBtn" OnClick="customerBtn_Click" CssClass="btn btn-primary btn-lg"  Text="Customer" />
+            
+            <asp:Button runat="server" ID="businessBtn" OnClick="businessBtn_Click" CssClass="btn btn-light btn-lg"  Text="Business" />  
+        <!-- butonu anchorla değiştirebiliyourz burda hrefi aşağıdaki spekersa hedefledik-->        
+          </div></div>
+        </div>
       <div class="form-group col-md-6">
             <asp:Label ID="name" runat="server" Text="Name"></asp:Label><asp:TextBox ID="nameBox" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
         </div>
         <div class="form-group col-md-6">
             <asp:Label ID="Label4" runat="server" Text="Surname"></asp:Label><asp:TextBox ID="srnameBox" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
         </div>
+        
         <div class="form-group col-md-6">
-            <asp:Label ID="usename" runat="server" Text="User Name"></asp:Label><asp:TextBox ID="usernameBox" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
+            <asp:Label ID="Label3" runat="server" Text="E-mail"></asp:Label><asp:TextBox ID="email_txtb" CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"  runat="server" ControlToValidate="email_txtb" ErrorMessage="Please check your e-mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
         </div>
-        <div class="form-group col-md-6">
-            <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label><asp:TextBox ID="email1" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
-        </div>
-        <div class="form-group col-md-6">
-            <asp:Label ID="Label5" runat="server" Text="Verify Email"></asp:Label><asp:TextBox ID="email2" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
+        <asp:Panel runat="server" ID="x">
+                <div class="form-group col-md-6">
+                    <asp:Label ID="usename" runat="server" Text="User Name"></asp:Label><asp:TextBox ID="usernameBox" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
+                </div>
+               <div class="form-group col-md-6">
+                   Birth Date: 
+                   <div class="btn-group">
+                       <asp:DropDownList runat="server" CssClass="form-control" ID="day">
+                       </asp:DropDownList>
+                       <asp:DropDownList runat="server" CssClass="form-control" ID="mount">
+                       </asp:DropDownList>
+                       <asp:DropDownList runat="server" CssClass="form-control" ID="year">
+                       </asp:DropDownList>
+
+                   </div>
+               </div>
+        
+                <div class="form-group col-md-6">
+                    <asp:Label ID="Label5" runat="server" Text="Gender"></asp:Label>
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="gender">
+                        <asp:ListItem Value="M">Male</asp:ListItem>
+                        <asp:ListItem Value="F">Female</asp:ListItem>
+                </asp:DropDownList>
+               </div>
+         </asp:Panel>
+         <div class="form-group col-md-6">
+            <asp:Label ID="Label1" runat="server" Text="Password"></asp:Label><asp:TextBox ID="pass1" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox><br /><br />
         </div>
          <div class="form-group col-md-6">
-            <asp:Label ID="Label1" runat="server" Text="Password"></asp:Label><asp:TextBox ID="pass1" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
-        </div>
-         <div class="form-group col-md-6">
-            <asp:Label ID="Label2" runat="server" Text="VerifyPassword"></asp:Label><asp:TextBox ID="pass2" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
+            <asp:Label ID="Label2" runat="server" Text="VerifyPassword"></asp:Label><asp:TextBox ID="pass2" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox><br /><br />
         </div>
         <div class="form-group col-md-6">
             <asp:Label ID="Label6" runat="server" Text="Phone Number"></asp:Label><asp:TextBox ID="phone1" CssClass="form-control" runat="server"></asp:TextBox><br /><br />
@@ -49,9 +82,14 @@
         <div class="form-group col-md-6">
             <asp:Label ID="Label11" runat="server" Text="Currency:"></asp:Label><asp:DropDownList ID="currencylist" CssClass="form-control" runat="server"></asp:DropDownList><br /><br />
         </div>
+        </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="businessBtn" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="customerBtn" EventName="Click" />
+            </Triggers>
+        </asp:UpdatePanel>
+            <asp:Button ID="Submit" runat="server" CssClass="btn btn-primary" OnClick="Submit_Click" Text="Submit"  />
         
-            <asp:Button ID="Submit" runat="server" CssClass="btn btn-primary" Text="Submit"  />
-        <%--email--%>
     </div>
     
     </div>
