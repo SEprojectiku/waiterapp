@@ -16,6 +16,8 @@ namespace waiterApp
         fillDropDown filldropdownlist = new fillDropDown();
          static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
+        insertions insert = new insertions();
+        encyption enc = new encyption();
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -65,11 +67,17 @@ namespace waiterApp
         {
             
              x.Visible = false;
+            string password = enc.CreateMD5(pass1.Text.Trim());
+
+            insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(), "2007-04-16", "M", 3, 1, 1, "asdas", password);
         }
 
         protected void customerBtn_Click(object sender, EventArgs e)
         {
             x.Visible = true;
+            string password = enc.CreateMD5(pass1.Text.Trim());
+
+            insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(), "2007-04-16", "M", 3, 1, 1, "asdas", password);
         }
 
         protected void Submit_Click(object sender, EventArgs e)
@@ -77,46 +85,16 @@ namespace waiterApp
             //string birth = year.SelectedValue.ToString() +"-"+ mount.SelectedValue.ToString() +"-"+
             //                day.SelectedValue.ToString();
             //string dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
-            try
-            {
 
                
-                int basarili;
-                connection.Open();
-                SqlCommand submit = new SqlCommand("insert into users.userinfo(firstName,lastName,userName,phoneNumber,email,userPassword,birthDay,gender,city,lang " +
-                                                                    ", currency, registerDate, membershipStatus, photoPath) " +
-                                                                    "VALUES(@fname,@lname,@uname,@phone,@email,@password,@bday,@gendr,@city,@lang,@curr,@regisdate,@memstatus,@phopath)");
-                using (SqlDataAdapter sda = new SqlDataAdapter())
-                {
-                    submit.Parameters.AddWithValue("@fname ", nameBox.Text.Trim());
-                    submit.Parameters.AddWithValue("@lname ", srnameBox.Text.Trim());
-                    submit.Parameters.AddWithValue("@uname ", usename.Text.Trim());
-                    submit.Parameters.AddWithValue("@email ", email_txtb.Text.Trim());
-                    submit.Parameters.AddWithValue("@phone ", phone1.Text.Trim());
-                    submit.Parameters.AddWithValue("@password ", pass1.Text.Trim());
-                    submit.Parameters.AddWithValue("@bday ", "2007-04-16");
-                    submit.Parameters.AddWithValue("@gendr ", "M");
-                    submit.Parameters.AddWithValue("@city ", 3);
-                    submit.Parameters.AddWithValue("@lang ", 1);
-                    submit.Parameters.AddWithValue("@curr ", 1);
-                    submit.Parameters.AddWithValue("@regisdate ", "2007-04-16");
-                    submit.Parameters.AddWithValue("@memstatus ", 1);
-                    submit.Parameters.AddWithValue("@phopath ", "sdfasdf");
-                    submit.Connection = connection;
+               string password = enc.CreateMD5(pass1.Text.Trim());
 
-                    basarili = Convert.ToInt32(submit.ExecuteScalar());
-                    connection.Close();
-                }
-
+                insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(),  "2007-04-16", "M", 3, 1, 1, "asdas", password);
 
                 success.Visible = true;
                 
 
-            }
-            catch (Exception)
-            {
-                errorr_panel.Visible = true;
-            }
+           
         }
     }
 }
