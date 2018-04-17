@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerSetTable.aspx.cs" Inherits="waiterApp.CustomerSetTable" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerSetTable.aspx.cs" Inherits="waiterApp.CustomerSetTable" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 

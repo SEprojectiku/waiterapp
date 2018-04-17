@@ -171,6 +171,39 @@ namespace waiterApp
             con.Close();
             return ds;
         }
+        public DataTable listActiveMenuitemsCategories(int bid)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            using (var cmd = new SqlCommand("listActivemenuitemsCategories", con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@bid", bid));
+                da.Fill(dt);
+            }
+            con.Close();
+            return dt;
+        }
+        public DataTable listActiveMenuitemswithCategories(int bid, int catid)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            using (var cmd = new SqlCommand("listActivemenuitemswithCategories", con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@bid", bid));
+                cmd.Parameters.Add(new SqlParameter("@catid", catid));
+                da.Fill(dt);
+            }
+            con.Close();
+            return dt;
+        }
         public DataSet listSetteableTables(int bid,string date1, string date2, int time)
         {
             DataSet ds = new DataSet();

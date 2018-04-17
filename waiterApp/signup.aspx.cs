@@ -67,20 +67,29 @@ namespace waiterApp
 
         protected void businessBtn_Click(object sender, EventArgs e)
         {
+
             signUpType = false;
             businessBtn.CssClass = "btn btn-primary btn-lg";
             customerBtn.CssClass = "btn btn-light btn-lg";
              
-            string password = enc.CreateMD5(pass1.Text.Trim());
+
+            
+            
+
+            
             currencylist.Visible = false;
            
         }
 
         protected void customerBtn_Click(object sender, EventArgs e)
         {
+
             signUpType = true;
             businessBtn.CssClass = "btn btn-light btn-lg";
             customerBtn.CssClass = "btn btn-primary btn-lg";
+
+
+
             string password = enc.CreateMD5(pass1.Text.Trim());
             currencylist.Visible = true;
            
