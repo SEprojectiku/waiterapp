@@ -48,7 +48,7 @@ namespace waiterApp
             }
             else
             {
-                Response.Redirect(Request.RawUrl);
+                
                 err_lbl.Visible = true;
             }
             dr.Close();

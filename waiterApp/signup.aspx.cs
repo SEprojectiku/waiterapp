@@ -13,6 +13,8 @@ namespace waiterApp
     
     public partial class signup : System.Web.UI.Page
     {
+
+        static bool signUpType = true;
         fillDropDown filldropdownlist = new fillDropDown();
          static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
@@ -65,36 +67,90 @@ namespace waiterApp
 
         protected void businessBtn_Click(object sender, EventArgs e)
         {
-            
-             x.Visible = false;
+            signUpType = false;
+            businessBtn.CssClass = "btn btn-primary btn-lg";
+            customerBtn.CssClass = "btn btn-light btn-lg";
+             
             string password = enc.CreateMD5(pass1.Text.Trim());
-
-            insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(), "2007-04-16", "M", 3, 1, 1, "asdas", password);
+            currencylist.Visible = false;
+           
         }
 
         protected void customerBtn_Click(object sender, EventArgs e)
         {
-            x.Visible = true;
+            signUpType = true;
+            businessBtn.CssClass = "btn btn-light btn-lg";
+            customerBtn.CssClass = "btn btn-primary btn-lg";
             string password = enc.CreateMD5(pass1.Text.Trim());
-
-            insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(), "2007-04-16", "M", 3, 1, 1, "asdas", password);
+            currencylist.Visible = true;
+           
         }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            //string birth = year.SelectedValue.ToString() +"-"+ mount.SelectedValue.ToString() +"-"+
-            //                day.SelectedValue.ToString();
-            //string dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
+            string table="";
+            if (signUpType)
+                table = "insert into users.userinfo(firstName,lastName,userName,phoneNumber,email,userPassword,birthDay,gender,city,lang " +
+                                                                    ", currency, registerDate, membershipStatus, photoPath) " +
+                                                                    "VALUES(@fname,@lname,@uname,@phone,@email,@password,@bday,@gendr,@city,@lang,@curr,@regisdate,@memstatus,@phopath)";
+            else
+                table = "insert into business.memberinfo(firstName,lastName,userName,phone1,email,userPassword,birthDay,gender,city,lang " +
+                                                                    ", registerDate, membershipStatus, photoPath) " +
+                                                                    "VALUES(@fname,@lname,@uname,@phone,@email,@password,@bday,@gendr,@city,@lang,@regisdate,@memstatus,@phopath)";
 
-               
+
                string password = enc.CreateMD5(pass1.Text.Trim());
 
-                insert.insertUser(nameBox.Text.Trim(), srnameBox.Text.Trim(), usename.Text.Trim(), email_txtb.Text.Trim(), phone1.Text.Trim(),  "2007-04-16", "M", 3, 1, 1, "asdas", password);
+            string birth = year.SelectedValue.ToString() + "-" + mount.SelectedValue.ToString() + "-" +
+                         day.SelectedValue.ToString();
 
+            try
+            {
+
+
+                int basarili;
+                connection.Open();
+                SqlCommand submit = new SqlCommand(table);
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    submit.Parameters.AddWithValue("@fname ", nameBox.Text.Trim());
+                    submit.Parameters.AddWithValue("@lname ", srnameBox.Text.Trim());
+                    submit.Parameters.AddWithValue("@uname ", usernameBox.Text.Trim());
+                    submit.Parameters.AddWithValue("@email ", email_txtb.Text.Trim());
+                    submit.Parameters.AddWithValue("@phone ", phone1.Text.Trim());
+                    submit.Parameters.AddWithValue("@password ", pass1.Text.Trim());
+                    submit.Parameters.AddWithValue("@bday ", birth);
+                    submit.Parameters.AddWithValue("@gendr ", gender.SelectedValue);
+                    submit.Parameters.AddWithValue("@city ", cityist.SelectedIndex+1);
+                    submit.Parameters.AddWithValue("@lang ", langlist.SelectedIndex+1);
+                    submit.Parameters.AddWithValue("@curr ", currencylist.SelectedIndex+1);
+                    submit.Parameters.AddWithValue("@regisdate ", DateTime.Now);
+                    submit.Parameters.AddWithValue("@memstatus ", 1);
+                    submit.Parameters.AddWithValue("@phopath ", "sdfasdf");
+                    submit.Connection = connection;
+
+                    basarili = Convert.ToInt32(submit.ExecuteScalar());
+                    connection.Close();
+                }
+
+                errorr_panel.Visible = true;
                 success.Visible = true;
+                fail.Visible = false;
+
+            }
+            catch (Exception)
+            {
+                errorr_panel.Visible = true;
+                fail.Visible = true;
+                success.Visible = false;
+            }
+
+            
                 
 
            
         }
+
+       
     }
 }

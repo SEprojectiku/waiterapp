@@ -6,7 +6,7 @@
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                   <asp:Label ID="success" runat="server" Visible="false"><strong>OK!</strong> You have successfully added the book.</asp:Label>
+                   <asp:Label ID="success" runat="server" Visible="false"><strong>OK!</strong> You have successfully signed up!</asp:Label>
                     <asp:Label ID="fail" runat="server" Visible="false">Check your values again please</asp:Label>
         </asp:Panel>
     <div>
@@ -62,7 +62,7 @@
             <asp:Label ID="Label1" runat="server" Text="Password"></asp:Label><asp:TextBox ID="pass1" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox><br /><br />
         </div>
          <div class="form-group col-md-6">
-            <asp:Label ID="Label2" runat="server" Text="VerifyPassword"></asp:Label><asp:TextBox ID="pass2" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox><br /><br />
+            <asp:Label ID="Label2" runat="server" Text="VerifyPassword"></asp:Label><asp:TextBox ID="pass2" CssClass="form-control" runat="server" TextMode="Password" ></asp:TextBox><br /><br />
         </div>
         <div class="form-group col-md-6">
             <asp:Label ID="Label6" runat="server" Text="Phone Number"></asp:Label><asp:TextBox ID="phone1" CssClass="form-control" runat="server"></asp:TextBox><br /><br />

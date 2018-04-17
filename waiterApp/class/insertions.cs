@@ -55,30 +55,10 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
         }
         public void insertUser(string fn, string ln, string username, string email, string phone, string bd, string gender, int city, int lang, int curr, string photo, string pass)
         {
+        
 
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-
-                    SqlCommand cmd = new SqlCommand("insertUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@fn", fn));
-                    cmd.Parameters.Add(new SqlParameter("@ln", ln));
-                    cmd.Parameters.Add(new SqlParameter("@username", username));
-                    cmd.Parameters.Add(new SqlParameter("@email", email));
-                    cmd.Parameters.Add(new SqlParameter("@phone", phone));
-                     cmd.Parameters.Add(new SqlParameter("@pass", pass));
-                     cmd.Parameters.Add(new SqlParameter("@bd", bd));
-                cmd.Parameters.Add(new SqlParameter("@gender", gender));
-                cmd.Parameters.Add(new SqlParameter("@city", city));
-                cmd.Parameters.Add(new SqlParameter("@lang", lang));
-                cmd.Parameters.Add(new SqlParameter("@curr", curr));
-                cmd.Parameters.Add(new SqlParameter("@photo", phone));
-                cmd.ExecuteNonQuery();
-          
 
             
-
-            con.Close();
         }
         public void insertTable(ArrayList typeid, ArrayList name, ArrayList chairnum, int iteration, int bid)
         {
