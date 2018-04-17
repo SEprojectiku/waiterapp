@@ -77,7 +77,7 @@ namespace waiterApp
             
 
             
-            currencylist.Visible = false;
+            currencylist.Visible = false;Label11.Visible = false;
            
         }
 
@@ -92,6 +92,7 @@ namespace waiterApp
 
             string password = enc.CreateMD5(pass1.Text.Trim());
             currencylist.Visible = true;
+            Label11.Visible = true;
            
         }
 
