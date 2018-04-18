@@ -237,6 +237,21 @@ namespace waiterApp
             con.Close();
             return ds;
         }
+        public DataSet listComingResforcustomer(int userid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            using (var cmd = new SqlCommand("listcomingreservaitonsforcutomer", con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@uid", userid));
+                da.Fill(ds);
+            }
+            con.Close();
+            return ds;
+        }
 
     }
 }

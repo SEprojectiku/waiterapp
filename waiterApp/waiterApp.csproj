@@ -154,6 +154,7 @@
     <Content Include="CustomerReservation.aspx" />
     <Content Include="CustomerSetTable.aspx" />
     <Content Include="CustomerViewMnu.aspx" />
+    <Content Include="CutomerProfilePage.aspx" />
     <Content Include="EditMenuYeni.aspx" />
     <Content Include="editTables.aspx" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -326,6 +327,13 @@
     </Compile>
     <Compile Include="CustomerViewMnu.aspx.designer.cs">
       <DependentUpon>CustomerViewMnu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CutomerProfilePage.aspx.cs">
+      <DependentUpon>CutomerProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CutomerProfilePage.aspx.designer.cs">
+      <DependentUpon>CutomerProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMenuYeni.aspx.cs">
       <DependentUpon>EditMenuYeni.aspx</DependentUpon>
