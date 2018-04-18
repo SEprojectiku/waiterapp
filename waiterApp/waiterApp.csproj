@@ -122,6 +122,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="bin\waiterApp.dll" />
     <Content Include="bin\waiterApp.pdb" />
+    <Content Include="BusinessAddInfo.aspx" />
     <Content Include="BusinessAddTable.aspx" />
     <Content Include="BusinessEditInfo.aspx" />
     <Content Include="BusinessEditMenu.aspx" />
@@ -244,6 +245,13 @@
     </Compile>
     <Compile Include="addNewMenu.aspx.designer.cs">
       <DependentUpon>addNewMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessAddInfo.aspx.cs">
+      <DependentUpon>BusinessAddInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessAddInfo.aspx.designer.cs">
+      <DependentUpon>BusinessAddInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusinessAddTable.aspx.cs">
       <DependentUpon>BusinessAddTable.aspx</DependentUpon>
