@@ -128,7 +128,7 @@ namespace waiterApp
                     submit.Parameters.AddWithValue("@uname ", usernameBox.Text.Trim());
                     submit.Parameters.AddWithValue("@email ", email_txtb.Text.Trim());
                     submit.Parameters.AddWithValue("@phone ", phone1.Text.Trim());
-                    submit.Parameters.AddWithValue("@password ", pass1.Text.Trim());
+                    submit.Parameters.AddWithValue("@password ", password);
                     submit.Parameters.AddWithValue("@bday ", birth);
                     submit.Parameters.AddWithValue("@gendr ", gender.SelectedValue);
                     submit.Parameters.AddWithValue("@city ", cityist.SelectedIndex+1);
