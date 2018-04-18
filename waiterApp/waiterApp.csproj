@@ -152,6 +152,7 @@
     <Content Include="css\util.css" />
     <Content Include="CustomerBusinessPage.aspx" />
     <Content Include="CustomerReservation.aspx" />
+    <Content Include="CustomerSearchPage.aspx" />
     <Content Include="CustomerSetTable.aspx" />
     <Content Include="CustomerViewMnu.aspx" />
     <Content Include="CutomerProfilePage.aspx" />
@@ -313,6 +314,13 @@
     </Compile>
     <Compile Include="CustomerReservation.aspx.designer.cs">
       <DependentUpon>CustomerReservation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerSearchPage.aspx.cs">
+      <DependentUpon>CustomerSearchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerSearchPage.aspx.designer.cs">
+      <DependentUpon>CustomerSearchPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerSetTable.aspx.cs">
       <DependentUpon>CustomerSetTable.aspx</DependentUpon>

@@ -253,5 +253,24 @@ namespace waiterApp
             return ds;
         }
 
+        public DataTable SelectedCountriesStates()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select s.name+','+c.name as name,s.name,c.name,s.id from [dbo].[states] s inner join [dbo].[countries] c on c.id=s.country_id group by c.name,s.name,s.id", con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+            return dt;
+        }
+
+
+
+
+
+
+
+
+
     }
 }
