@@ -14,6 +14,7 @@ namespace waiterApp
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
+        encyption enc = new encyption();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,7 +25,7 @@ namespace waiterApp
             SqlCommand query = new SqlCommand("SELECT * FROM users.userinfo WHERE email=@email AND userPassword=@pass", connection);
 
             query.Parameters.Add("@email", SqlDbType.NVarChar).Value = emailLogin.Text;
-            query.Parameters.Add("@pass", SqlDbType.NVarChar).Value = passwordLogin.Text;
+            query.Parameters.Add("@pass", SqlDbType.NVarChar).Value = enc.CreateMD5(passwordLogin.Text);
 
             connection.Open();
 
@@ -60,7 +61,7 @@ namespace waiterApp
             SqlCommand query = new SqlCommand("SELECT * FROM business.memberinfo WHERE email=@email AND userPassword=@pass", connection);
 
             query.Parameters.Add("@email", SqlDbType.NVarChar).Value = emailBusiness.Text;
-            query.Parameters.Add("@pass", SqlDbType.NVarChar).Value = passBus.Text;
+            query.Parameters.Add("@pass", SqlDbType.NVarChar).Value = enc.CreateMD5(passBus.Text);
 
             connection.Open();
 

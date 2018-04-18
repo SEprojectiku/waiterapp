@@ -94,6 +94,32 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
 
             con.Close();
         }
+        public void updateBusinessinfo(int bid,string bname, string bdesc, int city, string p1, string p2, string email, decimal lat, decimal lng, int avg, int wopen, int wclose, int curr, int lang)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+                SqlCommand cmd = new SqlCommand("updateBusinessinfo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@bid", bid));
+                cmd.Parameters.Add(new SqlParameter("@bname", bname));
+                cmd.Parameters.Add(new SqlParameter("@bdesc", bdesc));
+                cmd.Parameters.Add(new SqlParameter("@city", city));
+                cmd.Parameters.Add(new SqlParameter("@p1", p1));
+                cmd.Parameters.Add(new SqlParameter("@p2", p2));
+                cmd.Parameters.Add(new SqlParameter("@email", email));
+                cmd.Parameters.Add(new SqlParameter("@wopen",wopen));
+                cmd.Parameters.Add(new SqlParameter("@wclose", wclose));
+                cmd.Parameters.Add(new SqlParameter("@curr",curr));
+                cmd.Parameters.Add(new SqlParameter("@lang", lang));
+                cmd.Parameters.Add(new SqlParameter("@lat", lat));
+                cmd.Parameters.Add(new SqlParameter("@lng", lng));
+                cmd.Parameters.Add(new SqlParameter("@avg", avg));
+                cmd.ExecuteNonQuery();
+           
+        }
+
+
         public void insertReservation(int userID,int tableID, string date, int time, string message)
         {
             SqlConnection con = new SqlConnection(connectionString);
