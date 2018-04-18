@@ -129,6 +129,7 @@
     <Content Include="BusinessHome.aspx" />
     <Content Include="BusinessListMenus.aspx" />
     <Content Include="BusinessViewTables.aspx" />
+    <Content Include="CancelReservation.aspx" />
     <Content Include="cssBusiness\BusinessHomeSS.css" />
     <Content Include="cssBusiness\EditInfo.css" />
     <Content Include="css\animate.css" />
@@ -296,6 +297,13 @@
     </Compile>
     <Compile Include="BusinessViewTables.aspx.designer.cs">
       <DependentUpon>BusinessViewTables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CancelReservation.aspx.cs">
+      <DependentUpon>CancelReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelReservation.aspx.designer.cs">
+      <DependentUpon>CancelReservation.aspx</DependentUpon>
     </Compile>
     <Compile Include="class\encyption.cs" />
     <Compile Include="class\fillDropDown.cs" />

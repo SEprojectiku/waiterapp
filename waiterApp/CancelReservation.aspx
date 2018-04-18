@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CutomerProfilePage.aspx.cs" Inherits="waiterApp.CutomerProfilePage" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CancelReservation.aspx.cs" Inherits="waiterApp.CancelReservation" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -14,11 +13,10 @@
     
 <link href="css/BusinessHomeSS.css" type="text/css" rel="stylesheet"/>
  <title>Home</title>
-   
 </head>
 <body>
     <form id="form1" runat="server">
-   <nav class="navbar navbar-inverse navbar-fixed-top" style="width:96%; margin-left:2%; ">
+       <nav class="navbar navbar-inverse navbar-fixed-top" style="width:96%; margin-left:2%; ">
    <div class="container ">
     <div class="navbar-header">
      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -60,68 +58,40 @@
     </div>
   </div>
 </nav>
-
-
-<div class="container text-center" style="margin-top:10%;">    
-  <div class="row">
-    <div class="col-sm-12 well">
-      <div class="well">
-        <p>
-            <asp:Label ID="myName" runat="server" Text="Label"></asp:Label></p>
-        <img src="images/deneme.jpg" class="img-circle" height="65" width="65" alt="Avatar"/>
-      </div>
-
-    </div>
-  </div>
+    <div class="container text-center" style="margin-top:10%;">    
+  
 
 
   <div class="panel-group">
     <div class="panel panel-default">
-      <div class="panel-heading">
-          <h3>Recent Orders</h3>
 
-      </div>
-      <div class="panel-body">
-          <%--orderlar buraya yazılacak--%>
-        
- </div>
+
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-          <h3>Coming Reservations</h3>
+          <h3>Reservation Detailed Informations</h3>
 
       </div>
      <div class="panel-body">
 
     <table class="table  table-striped custab">
-    <thead >
-      <tr  >
-        <th class=" text-center">Date</th>
-        <th class="text-center" >Time</th>
-        <th class=" text-center">Table Name</th>
-        <th class=" text-center">Restorant Name</th>
-        
-      </tr>
-    </thead>
-      <tbody>
-        <asp:Repeater ID="DataList1" runat="server">
-            <ItemTemplate> 
 
+      <tbody>
+
+<tr>  <td><span>Restourant Name: </span><asp:Label ID="rname" runat="server" Text=""></asp:Label></td></tr>
       <tr>
-        <td ><asp:Label ID="Label2" runat="server" Text='<%# Eval("reservationDate") %>'></asp:Label></td>
-        <td  ><asp:Label ID="Label3" runat="server" Text='<%# Eval("reservationTime") %>'></asp:Label></td>
-        <td ><asp:Label ID="Label4" runat="server" Text='<%# Eval("tName") %>'></asp:Label></td>
-        <td><asp:Label ID="Label5" runat="server" Text='<%# Eval("bName") %>'></asp:Label></td>
-        <td>  <asp:Button ID="detailbutton" runat="server" Text="Details" CommandArgument='<%# Eval("resID") %>' OnClick="detailbutton_Click"/></td>
-     </tr>
-     </ItemTemplate>
-    </asp:Repeater>  
+        <td ><span>reservaton date: </span><asp:Label ID="date" runat="server" Text=""></asp:Label></td></tr>
+      <tr>  <td><span>reservation Time: </span><asp:Label ID="time" runat="server" Text=""></asp:Label></td></tr>
+      
+       <tr> <td><span>Latest Cancel Hours before: </span><asp:Label ID="canceltime" runat="server" Text=""></asp:Label></td></tr>
+     <tr> <td><span>Latest Cancel Fine: </span><asp:Label ID="cancelfine" runat="server" Text=""></asp:Label></td></tr>
+
     
  </tbody>
          </table> 
      
  </div> 
-        
+        <asp:Button ID="cancelbutton" runat="server" Text="Cancel Reservation" OnClick="cancelbutton_Click" />
 
      
     </div>
@@ -141,7 +111,6 @@
           <!--/.Copyright-->
       
       </div>
- </form>
+    </form>
 </body>
-
 </html>

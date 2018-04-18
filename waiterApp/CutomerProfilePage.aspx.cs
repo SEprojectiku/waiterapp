@@ -29,6 +29,7 @@ namespace waiterApp
                 navbarname.Text = dr["userName"].ToString();
             }
 
+
             DataSet ds = filldropdownlist.listComingResforcustomer(1); // 1 yerine session dan gelen veri yazolacak -- seçilen restoranın numarası
             pagesource = new PagedDataSource();
             pagesource.DataSource = ds.Tables[0].DefaultView;
@@ -37,6 +38,13 @@ namespace waiterApp
 
             DataList1.DataSource = pagesource;
             DataList1.DataBind();
+        }
+
+        protected void detailbutton_Click(object sender, EventArgs e)
+        {
+            Button Button1 = (Button)sender;
+           Session["resID"]= Button1.CommandArgument.ToString();
+            Server.Transfer("CancelReservation.aspx", true);
         }
     }
 }
