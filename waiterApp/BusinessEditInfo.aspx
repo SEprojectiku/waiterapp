@@ -106,17 +106,43 @@
                     <br/><br/>
                     <div class="form-horizontal">
                         <label for="First_name">Business name</label>
-                        <asp:TextBox runat="server" type="text" class="form-control" id="First_name" placeholder="MestanlıCafe" value="MestanlıCafe"/>
-                        <label for="Phone_num">Phone</label>
-                        <asp:TextBox runat="server" type="text" class="form-control" id="Phone_num" placeholder="053525223523" value="053525223523"/>
-                        <label for="email">Email</label>
-                        <asp:TextBox runat="server" type="text" class="form-control" id="email" placeholder="ss@gmila.com" value="ss@gmila.com"/>
-                        
+                        <asp:TextBox runat="server" type="text" class="form-control" id="bname" />
+                         <label for="email">Description</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="bdesc" />
 
+                        <label for="Phone_num">Phone</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="p1" />
+                        <label for="email">Phone2</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="p2"/>
+                        
+                         <label for="email">Email</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="email" />
+                       
+                        <label for="email">Country</label>
+                        <asp:DropDownList ID="countrylist" class="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="countrylist_SelectedIndexChanged"></asp:DropDownList>
+                        <label for="email">City</label>
+                        <asp:DropDownList ID="cityist" class="form-control" runat="server"></asp:DropDownList>
+                        
+                        <label for="email">lat</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="lat" />
+                        <label for="email">lng</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="lng" />
+                        <label for="email">Avarage Price</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="avg" />
+                        <label for="email">Work Open</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="wopen" />
+                        <label for="email">Work Close</label>
+                        <asp:TextBox runat="server" type="text" class="form-control" id="wclose" />
+                        <label for="email">Currency</label>
+                        <asp:DropDownList ID="currencylist" CssClass="form-control" runat="server"></asp:DropDownList>
+                        <label for="email">Language</label>
+                        <asp:DropDownList ID="langlist" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
                 </div>
             </div>
-            
+            <asp:Button ID="editmenubutton" runat="server" CssClass="form-control" Text="Edit Menu" OnClick="editmenubutton_Click"/>
+            <asp:Button ID="edittablebutton" runat="server" CssClass="form-control" Text="Edit Tables" OnClick="edittablebutton_Click"/>
+            <asp:Button ID="savebutton" runat="server" Text="Save Changes" OnClick="savebutton_Click"/>
             <div class="panel panel-default">
                 <div class="panel-body">
                     
