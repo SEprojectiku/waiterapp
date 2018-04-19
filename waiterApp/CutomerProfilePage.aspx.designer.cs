@@ -58,6 +58,24 @@ namespace waiterApp {
         protected global::System.Web.UI.WebControls.Label myName;
         
         /// <summary>
+        /// currencylist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList currencylist;
+        
+        /// <summary>
+        /// langlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList langlist;
+        
+        /// <summary>
         /// DataList1 control.
         /// </summary>
         /// <remarks>

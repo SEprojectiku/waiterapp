@@ -73,8 +73,13 @@
 
     </div>
   </div>
-
-
+    <span>update language and currency preferences: </span>
+    <asp:DropDownList ID="currencylist" runat="server" OnSelectedIndexChanged="currencylist_SelectedIndexChanged" >
+        <asp:ListItem Value="0">select curr</asp:ListItem>
+    </asp:DropDownList>
+    <asp:DropDownList ID="langlist" runat="server" OnSelectedIndexChanged="langlist_SelectedIndexChanged" >
+        <asp:ListItem Value="0">select lang</asp:ListItem>
+    </asp:DropDownList>
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">

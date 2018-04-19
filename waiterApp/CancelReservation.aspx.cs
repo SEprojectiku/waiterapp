@@ -57,7 +57,7 @@ namespace waiterApp
                 date.Text = dr["reservationDate"].ToString();
                 time.Text = dr["reservationTime"].ToString();
                 canceltime.Text = dr["latestCancelTime"].ToString();
-                fine = Convert.ToInt32(dr["lateCancelFine"].ToString());
+              //  fine = Convert.ToInt32(dr["lateCancelFine"].ToString());
                 curr =Convert.ToInt32(dr["id"].ToString()); //kullanıcnın gerçek para birimini alıyor. bunu dolara çevirmek gerekiyor
 
 
