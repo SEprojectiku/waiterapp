@@ -137,6 +137,7 @@
                         <asp:DropDownList ID="currencylist" CssClass="form-control" runat="server"></asp:DropDownList>
                         <label for="email">Language</label>
                         <asp:DropDownList ID="langlist" CssClass="form-control" runat="server"></asp:DropDownList>
+
                     </div>
                 </div>
             </div>
