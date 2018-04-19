@@ -18,11 +18,29 @@ namespace waiterApp
             if (!Page.IsPostBack)
             {
                 DataTable dt = fdp.SelectedCountriesStates();
+                DataTable CategoryTable = fdp.BusinessCategories();
+                CategoryButtonList.DataSource = CategoryTable;
+                CategoryButtonList.DataBind();
                 SelectState.DataTextField = "name";
                 SelectState.DataValueField = "id";
                 SelectState.DataSource = dt;
                 SelectState.DataBind();
+                Panel2.Visible = false;
             }
+        }
+
+        protected void SearchResID_Click(object sender, EventArgs e)
+        {
+            if (Panel2.Visible == false)
+            {
+                Panel2.Visible = true;
+            }
+
+
+
+
+
+
         }
     }
 }

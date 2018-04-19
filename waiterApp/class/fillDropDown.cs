@@ -264,7 +264,20 @@ namespace waiterApp
             return dt;
         }
 
+        public DataTable BusinessCategories()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select typeID,typeName from businessTypes", con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+            return dt;
 
+
+
+
+        }
 
 
 

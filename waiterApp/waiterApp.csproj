@@ -140,6 +140,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\css.css" />
+    <Content Include="css\CustomerSearchSS.css" />
     <Content Include="css\icomoon.css" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\magnific-popup.css" />
