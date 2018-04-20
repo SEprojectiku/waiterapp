@@ -114,8 +114,8 @@
                                                        
                                                         <div class="row form-group">
                                                             <div class="col-md-12">
-                                                                <asp:Button runat="server" ID="busslogin" Text="Login" CssClass="btn btn-primary" OnClick="busslogin_Click"  />
-                                                                
+                                                                <asp:Button runat="server" ID="busslogin" Text="Login" CssClass="btn btn-primary" OnClick="busslogin_Click"  /> Or 
+                                                                <asp:Button runat="server"  Text="Sign up" PostBackUrl="~/signup.aspx" CssClass="btn btn-primary"/>
                                                             </div>
                                                         </div>
                                                     
@@ -136,11 +136,13 @@
                                                         </div>
                                                         <div class="row form-group">
                                                             <div class="col-md-12">
-                                                                 <asp:Button runat="server" ID="Login" Text="Login" OnClick="Login_Click" CssClass="btn btn-primary"  />
+                                                                 <asp:Button runat="server" ID="Login" Text="Login" OnClick="Login_Click" CssClass="btn btn-primary"  /> Or
+                                                                <asp:Button runat="server"  Text="Sign up" PostBackUrl="~/signup.aspx" CssClass="btn btn-primary"/>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div><asp:Label runat="server" ID="err_lbl" Text="Email or password wrong!" Visible="false"></asp:Label>
+                                            
                                             </div>
                                         </div>
                                     </div>
