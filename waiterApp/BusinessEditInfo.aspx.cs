@@ -92,6 +92,7 @@ namespace waiterApp
         protected void savebutton_Click(object sender, EventArgs e)
         {
             insert.updateBusinessinfo(1, bname.Text, bdesc.Text, Convert.ToInt32(cityist.SelectedValue), p1.Text, p2.Text, email.Text, Convert.ToDecimal(lat.Text), Convert.ToDecimal(lng.Text), Convert.ToInt32(avg.Text), Convert.ToInt32(wopen.Text), Convert.ToInt32(wclose.Text), Convert.ToInt32(currencylist.SelectedValue), Convert.ToInt32(langlist.SelectedValue));
+
         }
     }
 }

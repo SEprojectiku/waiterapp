@@ -237,6 +237,64 @@ namespace waiterApp
             con.Close();
             return ds;
         }
+        public DataSet listComingResforcustomer(int userid)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            using (var cmd = new SqlCommand("listcomingreservaitonsforcutomer", con))
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@uid", userid));
+                da.Fill(ds);
+            }
+            con.Close();
+            return ds;
+        }
+
+        public DataTable SelectedCountriesStates()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select s.name+','+c.name as name,s.name,c.name,s.id from [dbo].[states] s inner join [dbo].[countries] c on c.id=s.country_id group by c.name,s.name,s.id", con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+            return dt;
+        }
+
+        public DataTable BusinessCategories()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("select typeID,typeName from businessTypes", con);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            con.Close();
+            return dt;
+
+
+
+
+        }
+
+        public DataTable getBusinessList(string Cityid,string searchbox)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city FROM business.Businessinfo s WHERE content LIKE '%" + searchbox + "' AND WHERE s.city=" + Cityid, con);
+            adapter.Fill(dt);
+            con.Close();
+
+            return dt;
+        }
+
+
+
+
 
     }
 }

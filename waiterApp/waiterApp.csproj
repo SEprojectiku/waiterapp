@@ -129,6 +129,7 @@
     <Content Include="BusinessHome.aspx" />
     <Content Include="BusinessListMenus.aspx" />
     <Content Include="BusinessViewTables.aspx" />
+    <Content Include="CancelReservation.aspx" />
     <Content Include="cssBusiness\BusinessHomeSS.css" />
     <Content Include="cssBusiness\EditInfo.css" />
     <Content Include="css\animate.css" />
@@ -139,6 +140,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\css.css" />
+    <Content Include="css\CustomerSearchSS.css" />
     <Content Include="css\icomoon.css" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\magnific-popup.css" />
@@ -152,8 +154,10 @@
     <Content Include="css\util.css" />
     <Content Include="CustomerBusinessPage.aspx" />
     <Content Include="CustomerReservation.aspx" />
+    <Content Include="CustomerSearchPage.aspx" />
     <Content Include="CustomerSetTable.aspx" />
     <Content Include="CustomerViewMnu.aspx" />
+    <Content Include="CutomerProfilePage.aspx" />
     <Content Include="EditMenuYeni.aspx" />
     <Content Include="editTables.aspx" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -295,6 +299,13 @@
     <Compile Include="BusinessViewTables.aspx.designer.cs">
       <DependentUpon>BusinessViewTables.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CancelReservation.aspx.cs">
+      <DependentUpon>CancelReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelReservation.aspx.designer.cs">
+      <DependentUpon>CancelReservation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="class\encyption.cs" />
     <Compile Include="class\fillDropDown.cs" />
     <Compile Include="class\insertions.cs" />
@@ -313,6 +324,13 @@
     <Compile Include="CustomerReservation.aspx.designer.cs">
       <DependentUpon>CustomerReservation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerSearchPage.aspx.cs">
+      <DependentUpon>CustomerSearchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerSearchPage.aspx.designer.cs">
+      <DependentUpon>CustomerSearchPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerSetTable.aspx.cs">
       <DependentUpon>CustomerSetTable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +344,13 @@
     </Compile>
     <Compile Include="CustomerViewMnu.aspx.designer.cs">
       <DependentUpon>CustomerViewMnu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CutomerProfilePage.aspx.cs">
+      <DependentUpon>CutomerProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CutomerProfilePage.aspx.designer.cs">
+      <DependentUpon>CutomerProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMenuYeni.aspx.cs">
       <DependentUpon>EditMenuYeni.aspx</DependentUpon>

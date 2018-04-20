@@ -88,6 +88,7 @@
 
   <div class="panel-group">
     <div class="panel panel-default">
+
       <div class="panel-heading">
           <h3>Recent Orders</h3>
 
