@@ -1,22 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditMenuYeni.aspx.cs" Inherits="waiterApp.EditMenuYeni" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerSearchPage.aspx.cs" Inherits="waiterApp.CustomerSearchPage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="css/EditInfo.css" type="text/css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  
+<link href="css/EditInfo.css" type="text/css" rel="stylesheet"/>
+    <link href="css/CustomerSearchSS.css" rel="stylesheet" />
+    <title>CustomerSearchPage</title>
    
-    <title>EditMenuYeni</title>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-inverse navbar-fixed-top" style="width:96%; margin-left:2%; ">
+   <nav class="navbar navbar-inverse navbar-fixed-top" style="width:96%; margin-left:2%; ">
    <div class="container ">
     <div class="navbar-header">
      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -66,83 +71,174 @@
         </div>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span>MestanliCafe</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Tuncay Yılmaz</a></li>
       </ul>
     </div>
   </div>
 </nav>
-        <div class="container text-center" style="margin-top:10%;">    
-         <div class="row">
-                <div class="col-sm-12 well">
-                  <div class="well">
-                    <p><a href="#">MestanlıCafe</a></p>
-                    <img src="images/deneme.jpg" class="img-circle" height="65" width="65" alt="Avatar"/>
-                 </div>
 
-              </div>
-        </div>
-          <div class="mainbody container-fluid">
-             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                 
-                       
-                      <div class="panel panel-default"> 
-                         
-                        <div class="panel-body">
-                    <asp:Repeater ID="Repeater1" runat="server" onitemdatabound="Repeater1_ItemDataBound">
-                       <ItemTemplate>
-                         
-                        
-                       <table class="table table-striped custab">  
-                          
-                               <thead>
-                               
-                               <tr>
-                              <th class="text-center">Name</th>
-                              <th class="text-center">Ingredients</th>
-                              <th class="text-center">Price</th>
-                              <th class="text-center"></th>
-                               </tr>
-                              </thead>
-                           
-                            <h2 class="panel-title pull-left"><%#Eval("catName") %></h2>
-                           
-                           <asp:Repeater ID="Repeater2" runat="server">
-                       
-                             
-                           
-                            
-                            <ItemTemplate>
-                         
-                           <tr id='<%#Eval("foodbeveragesID")%>'> 
-                              
-                            <td> <asp:TextBox runat="server" Text='<%#Eval("foodbeveragesName")%>'></asp:TextBox> </td>
-                            <td> <asp:TextBox runat="server" Text='<%#Eval("ingredients")%>'></asp:TextBox> </td>
-                            <td> <asp:TextBox runat="server" Text='<%#Eval("price")%>'></asp:TextBox> </td>
-                            <td class="text-center">	<input type="checkbox" name="check"> <span class="label-text">Visibilty</span> <asp:Button runat="server" class="btn btn-danger btn-xs " Text="Delete" Style="float: right;" /></td>
-                           </tr>
-                        
-                        </ItemTemplate>
-                        
-                       </asp:Repeater>
-                     </table>
-                    </ItemTemplate>
-                 </asp:Repeater>
-                     
-                  </div>
-                </div>
-        
-        
-        
-        
-        
-        
-        
-        
-          </div>
+
+<div class="container text-center" style="margin-top:10%;">    
+  <div class="row">
+    <div class="col-sm-12 well">
+      <div class="well">
+        <p><a href="#">Tuncay Yılmaz</a></p>
+        <img src="images/deneme.jpg" class="img-circle" height="65" width="65" alt="Avatar"/>
+      </div>
+
     </div>
+  </div>
+
+     <div class="panel-group">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group input-group" style="width:100%;">
+
+                
+                <asp:DropDownList ID="SelectState"  class="form-control" style="float:left;" Width="30%"  runat="server" ></asp:DropDownList>
+                
+                <asp:Button ID="SearchResID" Text="Search" style="float:right; " runat="server" class="btn btn-primary" OnClick="SearchResID_Click"/>
+                <asp:TextBox id="SearchBox" class="form-control" style="float:right; "  Width="40%" runat="server" />
+                
+           
+                
+                </div>
+            
+            </div>
+
+
+        </div>
+
+<script type="text/javascript">
+           $("#SelectState").select2({
+               tags: true
+           });
+
+    </script>
+     
+
+     <div class="panel panel-primary">
+         
+               <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+               <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+               <ContentTemplate>
+                   <asp:Panel ID="Panel1" runat="server" Width="20%" style="float:left;" class="panel panel-primary">
+                       <h3>Filters</h3>
+                       <asp:LinkButton ID="Hightlow" runat="server">Cost-High to Low</asp:LinkButton>
+                        <br/>
+                       <asp:LinkButton ID="Lowhigh" runat="server">Cost-Low to High</asp:LinkButton>
+                        <br/>
+                        <asp:LinkButton ID="Newold" runat="server">Recently Added-New to Old</asp:LinkButton>
+                       
+                       <h3>Categories</h3>
+                        <asp:Repeater ID="CategoryButtonList"  runat="server"  >
+                            <ItemTemplate>
+                                <asp:LinkButton ID="Buttons"  runat="server"><%#Eval("typeName")%></asp:LinkButton>
+                                <br/>
+                            </ItemTemplate>
+
+                        </asp:Repeater>
+                       
+                   </asp:Panel>
+
+                   <asp:Panel ID="Panel2" runat="server" Width="80%" style="float:right;">
+                
+                   <div class="bs-calltoaction bs-calltoaction-default" style="width:100%;">
+                    <div class="row">
+                        <div class=" cta-contents" >
+                            
+                            <h1 style="float:left;">Mestanli CAFE</h1>
+                            <div class="cta-desc">
+                                <h5>Category</h5>
+                                <h5>State</h5>
+                                <h6>Describe the action here. w23 ae23qadfq3 2323 2342 43</h6>
+                                <h3>Hours:13.00-17.00</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3 cta-button">
+                            <a href="#" class="btn btn-lg btn-block btn-default">Go for It!</a>
+                        </div>
+                     </div>
+                </div>
+                
+           
+                   </asp:Panel>
+
+
+
+                </ContentTemplate>
+                 <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="SearchResID" />
+            </Triggers>  
+              </asp:UpdatePanel>     
+                   
+
+
+
+     </div>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+      
+      
+     
+     </div>
 </div>
- </div>
+
+
+
+
+ <div class="page-footer font-small blue pt-4 mt-4" style="margin-bottom:2%;">
+    <div class="footer-copyright py-3 text-center">
+              <div class="container-fluid">
+                  <a> © 2018 Copyright: WaiterAPP </a>
+      
+              </div>
+          </div>
+          <!--/.Copyright-->
+      
+      </div>
+
+
+
+
+
+
+
+    
     </form>
 </body>
 </html>
+
