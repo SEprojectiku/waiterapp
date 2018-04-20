@@ -166,5 +166,32 @@ string connectionString = ConfigurationManager.ConnectionStrings["constring"].Co
                 
             con.Close();
         }
+        public void paymentForLateCancel(int bID, int userid, decimal total)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+                SqlCommand cmd = new SqlCommand("resCancelFinePayment", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@bid", bID));
+                cmd.Parameters.Add(new SqlParameter("@userID", userid));
+                cmd.Parameters.Add(new SqlParameter("@total", total));
+                cmd.ExecuteNonQuery();
+
+            con.Close();
+        }
+        public void CancelRes(int resID)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("delete from business.reservation where resID = @resid", con);
+            
+            cmd.Parameters.Add(new SqlParameter("@resid", resID));
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+        }
     }
 }
