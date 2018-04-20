@@ -31,6 +31,11 @@ namespace waiterApp
 
         protected void SearchResID_Click(object sender, EventArgs e)
         {
+            string city =SelectState.SelectedItem.Value;
+            string searchbar = TextBox1.Text;
+            BusinessList.DataSource = fdp.getBusinessList(city, searchbar);
+            BusinessList.DataBind();
+
             if (Panel2.Visible == false)
             {
                 Panel2.Visible = true;
@@ -42,5 +47,11 @@ namespace waiterApp
 
 
         }
+
+       
+
+
+
+
     }
 }

@@ -143,17 +143,18 @@
                    </asp:Panel>
 
                    <asp:Panel ID="Panel2" runat="server" Width="80%" style="float:right;">
-                
-                   <div class="bs-calltoaction bs-calltoaction-default" style="width:100%;">
+                <asp:Repeater ID="BusinessList" runat="server">
+                  <ItemTemplate>
+                    <div class="bs-calltoaction bs-calltoaction-default" style="width:100%;">
                     <div class="row">
                         <div class=" cta-contents" >
                             
-                            <h1 style="float:left;">Mestanli CAFE</h1>
+                            <h1 style="float:left;"><%#Eval("bName")%></h1>
                             <div class="cta-desc">
                                 <h5>Category</h5>
-                                <h5>State</h5>
-                                <h6>Describe the action here. w23 ae23qadfq3 2323 2342 43</h6>
-                                <h3>Hours:13.00-17.00</h3>
+                                <h5>State:<%#Eval("city")%></h5>
+                                <h6>tuncay buraya address için database e ekleme yap</h6>
+                                <h3>Hours:<%#Eval("workOpen")%>-<%#Eval("workClose")%></h3>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
@@ -161,8 +162,8 @@
                         </div>
                      </div>
                 </div>
-                
-           
+                </ItemTemplate>
+           </asp:Repeater>
                    </asp:Panel>
 
 

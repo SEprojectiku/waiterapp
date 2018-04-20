@@ -279,7 +279,18 @@ namespace waiterApp
 
         }
 
+        public DataTable getBusinessList(string Cityid,string searchbox)
+        {
 
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city FROM business.Businessinfo s WHERE content LIKE '%" + searchbox + "' AND WHERE s.city=" + Cityid, con);
+            adapter.Fill(dt);
+            con.Close();
+
+            return dt;
+        }
 
 
 
