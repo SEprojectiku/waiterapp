@@ -15,6 +15,7 @@ namespace waiterApp
         static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         SqlConnection connection = new SqlConnection(connectionString);
         timedatecalculater tdc = new timedatecalculater();
+        insertions insert = new insertions();
         protected void Page_Load(object sender, EventArgs e)
         {
             SqlCommand query = new SqlCommand("SELECT * FROM users.userinfo WHERE userID=@uid", connection);
@@ -46,7 +47,9 @@ namespace waiterApp
 
         protected void cancelbutton_Click(object sender, EventArgs e)
         {
-            int curr, fine;
+            int curr, fineint;
+            decimal fine = 0;
+
 
             SqlCommand query2 = new SqlCommand("select b.bID, r.resID, b.bName, b.workOpen, b.workClose, rules.latestCancelTime, rules.lateCancelFine, r.reservationDate, r.reservationTime, c.symbol, c.id from[business].[Businessinfo] b inner join[business].[reservationRules] rules on rules.bID = b.bID inner join[business].[tableinfo] t on t.bID = b.bID inner join[business].[reservation] r on r.tableID = t.tID inner join [users].[userinfo] u on r.userID = u.userID inner join[dbo].[currency] c on b.currency = c.id where r.resID = @resid", connection);
             query2.Parameters.Add("@resid", SqlDbType.NVarChar).Value = Session["resID"]; // sessiondan gelen kullanıcı id si yazılacak
@@ -57,15 +60,19 @@ namespace waiterApp
                 date.Text = dr["reservationDate"].ToString();
                 time.Text = dr["reservationTime"].ToString();
                 canceltime.Text = dr["latestCancelTime"].ToString();
-              //  fine = Convert.ToInt32(dr["lateCancelFine"].ToString());
+                fine = Convert.ToDecimal(dr["lateCancelFine"].ToString());
                 curr =Convert.ToInt32(dr["id"].ToString()); //kullanıcnın gerçek para birimini alıyor. bunu dolara çevirmek gerekiyor
 
 
             }
+            fineint = Convert.ToInt32(fine);
              if((DateTime.Now.ToShortDateString() + " 12:00:00 AM") == date.Text)
             {
                 if((Convert.ToInt32(time.Text) - tdc.datetimeNowformatterforTime()) < Convert.ToInt32(canceltime.Text))
                 {
+                    //  insert.paymentForLateCancel(Convert.ToInt32(Session["bID"].ToString()), Convert.ToInt32(Session["userID"].ToString()), fine);
+                    insert.paymentForLateCancel(1, 1, fine);
+                    insert.CancelRes(Convert.ToInt32(Session["resID"].ToString()));
                     cancelbutton.Text = "ödeme gerek";
                 }
                 else cancelbutton.Text = "ödeme yok";
