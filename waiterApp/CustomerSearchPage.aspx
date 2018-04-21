@@ -96,7 +96,9 @@
                 <div class="form-group input-group" style="width:100%;">
 
                 
-                <asp:DropDownList ID="SelectState"  class="form-control" style="float:left;" Width="30%"  runat="server" ></asp:DropDownList>
+                <asp:DropDownList ID="SelectState"  class="form-control" style="float:left;" Width="30%"  runat="server" >
+                    <asp:ListItem Value="0">Type a City or Country Name</asp:ListItem>
+                    </asp:DropDownList>
                 
                 <asp:Button ID="SearchResID" Text="Search" style="float:right; " runat="server" class="btn btn-primary" OnClick="SearchResID_Click"/>
                 <asp:TextBox id="SearchBox" class="form-control" style="float:right; "  Width="40%" runat="server" />
@@ -124,17 +126,17 @@
                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                <ContentTemplate>
                    <asp:Panel ID="Panel1" runat="server" Width="20%" style="float:left;" class="panel panel-primary">
-                       <h3>Filters</h3>
-                       <asp:LinkButton ID="Hightlow" runat="server">Cost-High to Low</asp:LinkButton>
+                     <%--  <h3>Filters</h3>
+                       <asp:LinkButton ID="Hightlow" runat="server" OnClick="Hightlow_Click">Cost-High to Low</asp:LinkButton>
                         <br/>
-                       <asp:LinkButton ID="Lowhigh" runat="server">Cost-Low to High</asp:LinkButton>
+                       <asp:LinkButton ID="Lowhigh" runat="server" OnClick="Lowhigh_Click">Cost-Low to High</asp:LinkButton>
                         <br/>
-                        <asp:LinkButton ID="Newold" runat="server">Recently Added-New to Old</asp:LinkButton>
-                       
+                        <asp:LinkButton ID="Newold" runat="server" OnClick="Newold_Click">Recently Added-New to Old</asp:LinkButton>
+                       --%>
                        <h3>Categories</h3>
                         <asp:Repeater ID="CategoryButtonList"  runat="server"  >
                             <ItemTemplate>
-                                <asp:LinkButton ID="Buttons"  runat="server"><%#Eval("typeName")%></asp:LinkButton>
+                                <asp:LinkButton ID="Buttons"  runat="server" CommandArgument='<%#Eval("typeID")%>' OnClick="Buttons_Click"><%#Eval("typeName")%></asp:LinkButton>
                                 <br/>
                             </ItemTemplate>
 
@@ -143,7 +145,7 @@
                    </asp:Panel>
 
                    <asp:Panel ID="Panel2" runat="server" Width="80%" style="float:right;">
-                <asp:Repeater ID="BusinessList" runat="server">
+                <asp:Repeater ID="BusinessList" runat="server" OnItemDataBound="BusinessList_ItemDataBound" OnItemCommand="BusinessList_ItemCommand">
                   <ItemTemplate>
                     <div class="bs-calltoaction bs-calltoaction-default" style="width:100%;">
                     <div class="row">
@@ -151,14 +153,17 @@
                             
                             <h1 style="float:left;"><%#Eval("bName")%></h1>
                             <div class="cta-desc">
-                                <h5>Category</h5>
-                                <h5>State:<%#Eval("city")%></h5>
-                                <h6>tuncay buraya address için database e ekleme yap</h6>
-                                <h3>Hours:<%#Eval("workOpen")%>-<%#Eval("workClose")%></h3>
+                               
+                                <h5>Category:  <asp:Repeater ID="Repeater2" runat="server">
+                               <ItemTemplate><asp:Label ID="carlbl" runat="server" Text='<%#Eval("typeName")%>'></asp:Label><asp:Label ID="Label1" runat="server" Text=" "></asp:Label></ItemTemplate></asp:Repeater></h5>
+                                   
+                                <h5>State:<%#Eval("stateName")%></h5>
+                                <h6>Adress:<%#Eval("adress")%></h6>
+                                <h3>Work Hours:<%#Eval("workOpen")%>-<%#Eval("workClose")%></h3>
                             </div>
                         </div>
                         <div class="col-md-3 cta-button">
-                            <a href="#" class="btn btn-lg btn-block btn-default">Go for It!</a>
+                            <asp:Button ID="Button1" runat="server" Text="Go for It!" CommandArgument='<%#Eval("bID")%>' OnClick="Button1_Click"/>
                         </div>
                      </div>
                 </div>
