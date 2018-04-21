@@ -285,13 +285,263 @@ namespace waiterApp
             DataTable dt = new DataTable();
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city FROM business.Businessinfo s WHERE content LIKE '%" + searchbox + "' AND WHERE s.city=" + Cityid, con);
+            SqlDataAdapter adapter = new SqlDataAdapter(" SELECT st.name+','+c.name as stateName,s.bID, s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress FROM business.Businessinfo s INNER JOIN states st on s.city = st.id INNER JOIN countries c on c.id = st.country_id WHERE s.bName LIKE '%" + searchbox + "%' and s.city=" + Cityid, con);
             adapter.Fill(dt);
             con.Close();
 
             return dt;
         }
 
+        public DataTable getBusinessList(string Cityid)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(" SELECT st.name+','+c.name as stateName,s.bID, s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress FROM business.Businessinfo s INNER JOIN states st on s.city = st.id INNER JOIN countries c on c.id = st.country_id WHERE s.city=" + Cityid, con);
+            adapter.Fill(dt);
+            con.Close();
+
+            return dt;
+        }
+        public DataTable getBusinessListbycity(string searchBox)
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(" SELECT st.name+','+c.name as stateName,s.bID, s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress  FROM business.Businessinfo s INNER JOIN states st on s.city = st.id INNER JOIN countries c on c.id = st.country_id WHERE s.bName like '%" + searchBox + "%'", con);
+            adapter.Fill(dt);
+            con.Close();
+
+            return dt;
+        }
+        public DataTable getBusinessListbyCategory(string searchbar, string city, string catid)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            if (searchbar != "" && city != "1")
+            {
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(" SELECT st.name+','+c.name as stateName,s.bID, s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID INNER JOIN states st on s.city = st.id INNER JOIN countries c on c.id = st.country_id WHERE s.city = '" + city + "' AND s.bName like '%" + searchbar + "%' AND bt.typeID =" + catid, con);
+                adapter.Fill(dt);
+                con.Close();
+            }
+            else if (searchbar == "" && city != "1")
+            {
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(" SELECT st.name+','+c.name as stateName,s.bID, s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID INNER JOIN states st on s.city = st.id INNER JOIN countries c on c.id = st.country_id WHERE s.city = '" + city + "' AND bt.typeID =" + catid, con);
+                adapter.Fill(dt);
+                con.Close();
+            }
+            else if (city == "1" && searchbar != "")
+            {
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(" SELECT st.name+','+c.name as stateName,s.bID, s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress  FROM business.Businessinfo s INNER JOIN states st on s.city = st.id INNER JOIN countries c on c.id = st.country_id WHERE s.bName like '%" + searchbar + "%' AND bt.typeID =" + catid, con);
+                adapter.Fill(dt);
+                con.Close();
+            }
+            else if(city == "1" && searchbar == "")
+            {
+                con.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(" SELECT st.name+','+c.name as stateName,s.bID, s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress  FROM business.Businessinfo s INNER JOIN states st on s.city = st.id INNER JOIN countries c on c.id = st.country_id WHERE bt.typeID =" + catid, con);
+                adapter.Fill(dt);
+                con.Close();
+            }
+
+
+
+            return dt;
+        }
+
+        /*
+        public DataTable sortbusinessList(string searchbar, string city, string catid, int sortType)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(connectionString);
+            if(sortType == 0)
+            {
+                if (searchbar != "" && city != "0" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND s.bName like '%" + searchbar + "%' AND bt.typeID = '" + catid+"' order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if(searchbar != "" && city != "0" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND s.bName like '%" + searchbar + "%' order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar == "" && city != "0" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND bt.typeID = '" + catid + "' order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar == "" && city != "0" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar != "" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE s.bName like '%" + searchbar + "%' order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar != "" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE s.bName like '%" + searchbar + "%' AND bt.typeID ='" + catid + "' order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar == "" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE bt.typeID ='" + catid+ "' order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar == "" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s order by s.avaragePrice asc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+            }
+            else if(sortType == 1)
+            {
+                if (searchbar != "" && city != "0" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND s.bName like '%" + searchbar + "%' AND bt.typeID = '" + catid + "' order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar != "" && city != "0" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND s.bName like '%" + searchbar + "%' order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar == "" && city != "0" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND bt.typeID = '" + catid + "' order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar == "" && city != "0" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar != "" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE s.bName like '%" + searchbar + "%' order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar != "" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE s.bName like '%" + searchbar + "%' AND bt.typeID ='" + catid + "' order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar == "" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE bt.typeID ='" + catid + "' order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar == "" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s order by s.avaragePrice desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+            }
+            else if(sortType == 2)
+            {
+                if (searchbar != "" && city != "0" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND s.bName like '%" + searchbar + "%' AND bt.typeID = '" + catid + "' order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar != "" && city != "0" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND s.bName like '%" + searchbar + "%' order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar == "" && city != "0" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' AND bt.typeID = '" + catid + "' order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (searchbar == "" && city != "0" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s INNER JOIN business.businessType bt ON bt.bID = s.bID WHERE s.city = '" + city + "' order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar != "" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE s.bName like '%" + searchbar + "%' order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar != "" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE s.bName like '%" + searchbar + "%' AND bt.typeID ='" + catid + "' order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar == "" && catid != "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s WHERE bt.typeID ='" + catid + "' order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+                else if (city == "0" && searchbar == "" && catid == "")
+                {
+                    con.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(" SELECT s.bName,s.workOpen,s.workClose,s.email,s.city,s.adress, s.avaragePrice  FROM business.Businessinfo s order by s.registerDate desc", con);
+                    adapter.Fill(dt);
+                    con.Close(); return dt;
+                }
+            }
+            else return dt;
+
+            return dt;
+
+        }
+        */
 
 
 
