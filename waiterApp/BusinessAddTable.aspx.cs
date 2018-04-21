@@ -14,8 +14,6 @@ namespace waiterApp
     {
         fillDropDown fdp = new fillDropDown();
         insertions insert = new insertions();
-        static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
-        SqlConnection connection = new SqlConnection(connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -25,19 +23,6 @@ namespace waiterApp
                 DropDownList0.DataValueField = "typeID";
                 DropDownList0.DataSource = dt;
                 DropDownList0.DataBind();
-
-
-                SqlCommand query = new SqlCommand("SELECT * FROM business.businessinfo WHERE bID=@bid", connection);
-                query.Parameters.Add("@bid", SqlDbType.NVarChar).Value = Session["bID"].ToString(); // sessiondan gelen kullanıcı id si yazılacak
-                connection.Open();
-                SqlDataReader dr = query.ExecuteReader();
-                if (dr.Read())
-                {
-                    myName.Text = dr["bName"].ToString();
-                    navbarname.Text = dr["bName"].ToString();
-
-                }
-                connection.Close();
             }
         }
             ArrayList type = new ArrayList();
@@ -74,7 +59,7 @@ namespace waiterApp
             }
             // TextBox2.Text = strValue;
 
-            insert.insertTable(type, name, chair, i, Convert.ToInt32(Session["bID"].ToString())); //1 yerine sessiondan gelen bid yaz
+            insert.insertTable(type, name, chair, i, 1);
         }
     }
 }

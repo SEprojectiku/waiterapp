@@ -11,8 +11,7 @@ namespace waiterApp
 {
     public partial class EditMenuYeni : System.Web.UI.Page
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
-        SqlConnection connection = new SqlConnection(connectionString);
+        string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         fillDropDown fdp = new fillDropDown();
         
         protected void Page_Load(object sender, EventArgs e)
@@ -24,17 +23,6 @@ namespace waiterApp
                 Repeater1.DataSource = fdp.menucategories(menuid); //menu id girilecek
                 Repeater1.DataBind();
 
-                SqlCommand query = new SqlCommand("SELECT * FROM business.businessinfo WHERE bID=@bid", connection);
-                query.Parameters.Add("@bid", SqlDbType.NVarChar).Value = Session["bID"].ToString(); // sessiondan gelen kullanıcı id si yazılacak
-                connection.Open();
-                SqlDataReader dr = query.ExecuteReader();
-                if (dr.Read())
-                {
-                    myName.Text = dr["bName"].ToString();
-                    navbarname.Text = dr["bName"].ToString();
-
-                }
-                connection.Close();
             }
         }
 

@@ -11,17 +11,16 @@ namespace waiterApp
 {
     public partial class BusinessListMenus : System.Web.UI.Page
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
+        string connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
         fillDropDown filldropdownlist = new fillDropDown();
         PagedDataSource pagesource;
-        SqlConnection connection = new SqlConnection(connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             fill();
         }
         private void fill()
         {
-            DataSet ds = filldropdownlist.listMenus(Convert.ToInt32(Session["bID"].ToString())); // 1 yerine session dan gelen veri yazolacak -- seçilen restoranın numarası
+            DataSet ds = filldropdownlist.listMenus(1); // 1 yerine session dan gelen veri yazolacak -- seçilen restoranın numarası
             pagesource = new PagedDataSource();
             pagesource.DataSource = ds.Tables[0].DefaultView;
             pagesource.PageSize = 10;
@@ -29,21 +28,6 @@ namespace waiterApp
 
             DataList1.DataSource = pagesource;
             DataList1.DataBind();
-
-
-
-            SqlCommand query = new SqlCommand("SELECT * FROM business.businessinfo WHERE bID=@bid", connection);
-            query.Parameters.Add("@bid", SqlDbType.NVarChar).Value = Session["bID"].ToString(); // sessiondan gelen kullanıcı id si yazılacak
-            connection.Open();
-            SqlDataReader dr = query.ExecuteReader();
-            if (dr.Read())
-            {
-                myName.Text = dr["bName"].ToString();
-                navbarname.Text = dr["bName"].ToString();
-
-            }
-            connection.Close();
-
         }
 
         protected void editbutton_Click(object sender, EventArgs e)
